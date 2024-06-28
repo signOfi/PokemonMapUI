@@ -1,0 +1,16 @@
+<div *ngIf="encounters.length > 0; else noEncounters">
+  <div *ngFor="let encounter of encounters">
+    <p>
+      Pokemon Name: {{ encounter.pokemonName }},
+      Min Level: {{ encounter.minLevel }},
+      Max Level: {{ encounter.maxLevel }},
+      Encounter Method: {{ encounter.encounterMethod }},
+      Encounter Location: {{ encounter.locationName }},
+      Time of Encounter: {{ encounter.timeOfEncounter.join(', ') }},
+      Version: {{ encounter.versions.join(', ') }}
+    </p>
+  </div>
+</div>
+<ng-template #noEncounters>
+  <p>No encounters found.</p>
+</ng-template>

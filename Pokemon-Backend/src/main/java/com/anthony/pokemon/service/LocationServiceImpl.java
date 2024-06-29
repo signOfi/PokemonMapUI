@@ -23,7 +23,7 @@ public class LocationServiceImpl implements LocationService {
 
     @Override
     public Location getLocationByName(String name) {
-        return locationRepository.findByName(name).orElseThrow(() -> new LocationNotFoundException("Location not found"));
+        return locationRepository.findByName(name).orElseThrow(() -> new LocationNotFoundException("Location not found " + name));
     }
 
     @Override
@@ -82,7 +82,13 @@ public class LocationServiceImpl implements LocationService {
                 new Location("Route 46"),
                 new Location("Route 47"),
                 new Location("Route 48"),
-                new Location("Safari Zone")
+                new Location("Safari Zone"),
+                new Location("Whirl Islands"),
+                new Location("Dragon's Den"),
+                new Location("Dark cave Route 31"),
+                new Location("Dark cave Route 45"),
+                new Location("Sinjoh Ruins"),
+                new Location("Cliff Cave")
         );
 
         for (Location newLocation: newLocations)

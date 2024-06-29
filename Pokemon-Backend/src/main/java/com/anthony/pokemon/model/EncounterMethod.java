@@ -7,5 +7,6 @@ public enum EncounterMethod {
     SUPER_ROD,
     SURFING,
     GIFT,
-    ENCOUNTER
+    ENCOUNTER,
+    ROCK_SMASH
 }

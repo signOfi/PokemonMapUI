@@ -16,3 +16,4 @@ public class LocationDTO {
     private String name;
     private List<EncounterDTO> encounters;
 }
+

@@ -52,6 +52,7 @@ public class EncounterService {
         dto.setEncounterRate(encounter.getEncounterRate());
         dto.setEncounterMethod(encounter.getEncounterMethod());
         dto.setVersions(encounter.getVersions());
+        dto.setSubLevel(encounter.getSubLevel());
         return dto;
     }
 }

@@ -50,6 +50,10 @@ public class Encounter {
     @JoinColumn(name = "location_id", nullable = false)
     private Location location;
 
+    @Column(name = "subLevel", nullable = true)
+    private String subLevel;
+
+    /* Constructor without subLevel */
     public Encounter(Pokemon pokemon, Integer minLevel,
                      Integer maxLevel, Set<TimeOfEncounter> timeOfEncounter, Double encounterRate,
                      EncounterMethod encounterMethod, Set<GameVersion> versions, Location location) {
@@ -61,6 +65,22 @@ public class Encounter {
         this.encounterMethod = encounterMethod;
         this.versions = versions;
         this.location = location;
+        this.subLevel = null;
+    }
+
+    /* Constructor with subLevel */
+    public Encounter(Pokemon pokemon, Integer minLevel,
+                     Integer maxLevel, Set<TimeOfEncounter> timeOfEncounter, Double encounterRate,
+                     EncounterMethod encounterMethod, Set<GameVersion> versions, Location location, String subLevel) {
+        this.pokemon = pokemon;
+        this.minLevel = minLevel;
+        this.maxLevel = maxLevel;
+        this.timeOfEncounter = timeOfEncounter;
+        this.encounterRate = encounterRate;
+        this.encounterMethod = encounterMethod;
+        this.versions = versions;
+        this.location = location;
+        this.subLevel = subLevel;
     }
 
 
@@ -83,11 +103,13 @@ public class Encounter {
                 Objects.equals(timeOfEncounter, encounter.timeOfEncounter) &&
                 Objects.equals(encounterRate, encounter.encounterRate) &&
                 encounterMethod == encounter.encounterMethod &&
-                Objects.equals(location, encounter.location);
+                Objects.equals(location, encounter.location) &&
+                Objects.equals(subLevel, encounter.subLevel);
     }
+
     @Override
     public int hashCode() {
-        return Objects.hash(pokemon, minLevel, maxLevel, encounterMethod, location);
+        return Objects.hash(pokemon, minLevel, maxLevel, timeOfEncounter, encounterRate, encounterMethod, versions, location, subLevel);
     }
 
 }

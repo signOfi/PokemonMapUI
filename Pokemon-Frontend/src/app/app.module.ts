@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RightSideComponent } from './right-side/right-side.component';
 import { BelowMapComponent } from './below-map/below-map.component';
+import { PokemonImageComponent } from './pokemon-image/pokemon-image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RightSideComponent,
-    BelowMapComponent
+    BelowMapComponent,
+    PokemonImageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

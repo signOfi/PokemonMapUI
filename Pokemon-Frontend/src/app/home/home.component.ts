@@ -1,26 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { EncounterDTO } from "../model/encounterDTO";
-import { EncounterService } from "/Users/anthonylam/Desktop/Projects/PokemonAPI/Pokemon-Frontend/src/service/encounter.service";
+import { LocationDTO } from "../model/locationDTO";
+import { LocationService } from "/Users/anthonylam/Desktop/Projects/PokemonAPI/Pokemon-Frontend/src/service/location.service";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {  // Ensure it implements OnInit
+export class HomeComponent implements OnInit {
 
-  encounters: EncounterDTO[] = [];
+  locations: LocationDTO[] = [];
+  sproutTower: LocationDTO | undefined;
 
-  constructor(private encounterService: EncounterService) { }
+  constructor(private locationService: LocationService) { }
 
   ngOnInit(): void {
-    this.getPokemonEncounters();  // Fetch data on component initialization
+    this.getLocations();
   }
 
-  getPokemonEncounters(): void {
-    this.encounterService.getEncounters().subscribe((encounters: EncounterDTO[]) => {
-      this.encounters = encounters;
-      console.log(this.encounters);  // Log the encounters to verify data
+  getLocations(): void {
+    this.locationService.getLocations().subscribe((locations: LocationDTO[]) => {
+      this.locations = locations;
+      this.sproutTower = this.locations.find(location => location.name === 'Sprout Tower');
+      console.log(this.sproutTower);  // Log the specific location to verify data
     });
   }
 }

@@ -7,6 +7,5 @@ export interface EncounterDTO {
   encounterRate: number;
   encounterMethod: string;
   versions: string[];
-  locationName: string;
 }
 

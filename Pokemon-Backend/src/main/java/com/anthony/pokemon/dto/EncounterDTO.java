@@ -26,19 +26,14 @@ public class EncounterDTO {
     private Set<GameVersion> versions;
     private String locationName;
 
-    /* Static method to convert Entity to DTO */
-    public static EncounterDTO fromEntity(Encounter encounter) {
-        EncounterDTO dto = new EncounterDTO();
-        dto.setId(encounter.getId());
-        dto.setPokemonName(encounter.getPokemon().getName());
-        dto.setMinLevel(encounter.getMinLevel());
-        dto.setMaxLevel(encounter.getMaxLevel());
-        dto.setTimeOfEncounter(encounter.getTimeOfEncounter());
-        dto.setEncounterRate(encounter.getEncounterRate());
-        dto.setEncounterMethod(encounter.getEncounterMethod());
-        dto.setVersions(encounter.getVersions());
-        dto.setLocationName(encounter.getLocation().getName());
-        return dto;
+    public EncounterDTO(Long id, String name, Integer minLevel, Integer maxLevel, Set<TimeOfEncounter> timeOfEncounter, Double encounterRate, EncounterMethod encounterMethod, Set<GameVersion> versions) {
+        this.id = id;
+        this.pokemonName = name;
+        this.minLevel = minLevel;
+        this.maxLevel = maxLevel;
+        this.timeOfEncounter = timeOfEncounter;
+        this.encounterRate = encounterRate;
+        this.encounterMethod = encounterMethod;
+        this.versions = versions;
     }
-
 }

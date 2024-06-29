@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -62,5 +63,31 @@ public class Encounter {
         this.location = location;
     }
 
+
+    @Override
+    public String toString() {
+        return "Encounter{" +
+                "id=" + id +
+                ", locationId=" + (location != null ? location.getId() : "none") +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Encounter encounter = (Encounter) o;
+        return Objects.equals(pokemon, encounter.pokemon) &&
+                Objects.equals(minLevel, encounter.minLevel) &&
+                Objects.equals(maxLevel, encounter.maxLevel) &&
+                Objects.equals(timeOfEncounter, encounter.timeOfEncounter) &&
+                Objects.equals(encounterRate, encounter.encounterRate) &&
+                encounterMethod == encounter.encounterMethod &&
+                Objects.equals(location, encounter.location);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(pokemon, minLevel, maxLevel, encounterMethod, location);
+    }
 
 }

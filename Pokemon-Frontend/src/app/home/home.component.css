@@ -2,12 +2,12 @@
 .map-container {
   position: relative; /* Allows precise control of the image inside */
   height: 50vh; /* Adjust height as needed, here it's set to 50% of the viewport height */
-  padding: 20px; /* Adds padding around the container */
+  padding: 20px;
 }
 
 /* Styles specifically for the map image */
 .map-image {
-  width: 75%; /* Ensures the image stretches to the width of the container */
+  width: 50%; /* Ensures the image stretches to the width of the container */
   height: auto; /* Keeps the image's aspect ratio intact */
   position: absolute; /* Allows positioning relative to the nearest positioned ancestor (map-container) */
   top: 0; /* Aligns the top edge of the image with the top edge of the container */

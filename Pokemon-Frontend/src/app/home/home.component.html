@@ -1,20 +1,29 @@
-<!-- src/app/home/home.component.html -->
 <div class="map-container">
   <img src="assets/map.png" alt="Picture of Map" class="map-image">
 </div>
-<div *ngIf="sproutTower; else noLocations">
-  <h3>{{ sproutTower.name }}</h3>
-  <div *ngFor="let encounter of sproutTower.encounter">
-    <p>
-      <app-pokemon-image [pokemonName]="encounter.pokemonName"></app-pokemon-image>
-      Min Level: {{ encounter.minLevel }},
-      Max Level: {{ encounter.maxLevel }},
-      Encounter Method: {{ encounter.encounterMethod }},
-      Time of Encounter: {{ encounter.timeOfEncounter.join(', ') }},
-      Version: {{ encounter.versions.join(', ') }}
-    </p>
+
+<div *ngIf="locations.length > 0; else noLocations">
+  <div *ngFor="let location of locations">
+    <h2>{{ location.name }}</h2>
+    <div *ngIf="location.encounters.length > 0; else noEncounters">
+      <ul>
+        <li *ngFor="let encounter of location.encounters">
+          <app-pokemon-image [pokemonName]="encounter.pokemonName"></app-pokemon-image>
+          <strong>{{ encounter.pokemonName }}</strong> (Level: {{ encounter.minLevel }} to {{ encounter.maxLevel }})
+          <div>Method: {{ encounter.encounterMethod }}</div>
+          <div>Encounter Rate: {{ encounter.encounterRate }}%</div>
+          <div>Time of Encounter: {{ encounter.timeOfEncounter.join(', ') }}</div>
+          <div>Versions: {{ encounter.versions.join(', ') }}</div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
+
 <ng-template #noLocations>
   <p>No locations found.</p>
+</ng-template>
+
+<ng-template #noEncounters>
+  <p>No encounters found for this location.</p>
 </ng-template>

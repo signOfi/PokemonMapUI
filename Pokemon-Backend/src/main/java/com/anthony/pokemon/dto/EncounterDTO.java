@@ -26,26 +26,4 @@ public class EncounterDTO {
     private Set<GameVersion> versions;
     private String locationName;
     private String subLevel;
-
-    public EncounterDTO(Long id, String name, Integer minLevel, Integer maxLevel, Set<TimeOfEncounter> timeOfEncounter, Double encounterRate, EncounterMethod encounterMethod, Set<GameVersion> versions) {
-        this.id = id;
-        this.pokemonName = name;
-        this.minLevel = minLevel;
-        this.maxLevel = maxLevel;
-        this.timeOfEncounter = timeOfEncounter;
-        this.encounterRate = encounterRate;
-        this.encounterMethod = encounterMethod;
-        this.versions = versions;
-    }
-    public EncounterDTO(Long id, String pokemonName, Integer minLevel, Integer maxLevel, Set<TimeOfEncounter> timeOfEncounter, Double encounterRate, EncounterMethod encounterMethod, Set<GameVersion> versions, String locationName) {
-        this.id = id;
-        this.pokemonName = pokemonName;
-        this.minLevel = minLevel;
-        this.maxLevel = maxLevel;
-        this.timeOfEncounter = timeOfEncounter;
-        this.encounterRate = encounterRate;
-        this.encounterMethod = encounterMethod;
-        this.versions = versions;
-        this.locationName = locationName;
-    }
 }

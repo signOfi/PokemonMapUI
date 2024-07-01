@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LocationDTO } from "../model/locationDTO";
-import { LocationService } from "/Users/anthonylam/Desktop/Projects/PokemonAPI/Pokemon-Frontend/src/service/location.service";
+import { PokemonService } from '../services/pokemon.service';
+import { LocationDTO } from '../models/locationDTO';
 
 @Component({
   selector: 'app-home',
@@ -8,21 +8,18 @@ import { LocationService } from "/Users/anthonylam/Desktop/Projects/PokemonAPI/P
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
   locations: LocationDTO[] = [];
-  sproutTower: LocationDTO | undefined;
 
-  constructor(private locationService: LocationService) { }
+  constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
-    this.getLocations();
+    this.getEncounters(14, 'WALKING', ['DAY', 'NIGHT', 'MORNING']);  // Example call
   }
 
-  getLocations(): void {
-    this.locationService.getLocations().subscribe((locations: LocationDTO[]) => {
-      this.locations = locations;
-      this.sproutTower = this.locations.find(location => location.name === 'Sprout Tower');
-      console.log(this.sproutTower);  // Log the specific location to verify data
+  getEncounters(locationId: number, method: string, times: string[]): void {
+    this.pokemonService.getEncountersByMethodAndTime(locationId, method, times).subscribe({
+      next: (data: LocationDTO[]) => this.locations = data,
+      error: (error: any) => console.error('Failed to fetch data:', error)
     });
   }
 }

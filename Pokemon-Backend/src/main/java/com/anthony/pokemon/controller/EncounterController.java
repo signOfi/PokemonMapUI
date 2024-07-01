@@ -28,10 +28,4 @@ public class EncounterController {
         encounterSetupService.setupEncounters();
     }
 
-    @GetMapping("/setupEncounterDTO")
-    public ResponseEntity<List<EncounterDTO>> getAllEncounters() {
-        List<EncounterDTO> encounters = encounterService.getAllEncountersAsDTOs();
-        return ResponseEntity.ok(encounters);
-    }
-
 }

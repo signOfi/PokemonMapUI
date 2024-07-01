@@ -3,8 +3,8 @@ package com.anthony.pokemon.service;
 import com.anthony.pokemon.dto.EncounterDTO;
 import com.anthony.pokemon.dto.LocationDTO;
 import com.anthony.pokemon.exception.LocationNotFoundException;
-import com.anthony.pokemon.model.Encounter;
-import com.anthony.pokemon.model.Location;
+import com.anthony.pokemon.exception.PokemonNotFoundException;
+import com.anthony.pokemon.model.*;
 import com.anthony.pokemon.repository.LocationRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
@@ -20,6 +20,26 @@ public class LocationServiceImpl implements LocationService {
     public LocationServiceImpl(LocationRepository locationRepository) {
         this.locationRepository = locationRepository;
     }
+
+    @Override
+    public List<LocationDTO> getEncountersByMethodAndTimeAndVersion(Long locationId, EncounterMethod encounterMethod, Set<TimeOfEncounter> timeOfEncounters) {
+        Location location = locationRepository.findById(locationId)
+                .orElseThrow(() -> new LocationNotFoundException("Location with id, " + locationId + " not found."));
+
+        List<EncounterDTO> filteredEncounters = new ArrayList<>();
+        for (Encounter encounter : location.getEncounters()) {
+            boolean matchesMethod = (encounterMethod == null || encounter.getEncounterMethod() == encounterMethod);
+            boolean matchesTime = (timeOfEncounters == null || timeOfEncounters.isEmpty()) || timeOfEncounters.containsAll(encounter.getTimeOfEncounter());
+
+            if (matchesMethod && matchesTime) {
+                filteredEncounters.add(convertToEncounterDTO(encounter));
+            }
+        }
+
+        return Collections.singletonList(new LocationDTO(location.getId(), location.getName(), filteredEncounters));
+    }
+
+
 
     @Override
     public Location getLocationByName(String name) {
@@ -144,6 +164,23 @@ public class LocationServiceImpl implements LocationService {
         Location location = locationRepository.findByName(name)
                 .orElseThrow(() -> new LocationNotFoundException("Location not found with name: " + name));
         return convertToLocationDTO(location);
+    }
+
+    private EncounterDTO convertToEncounterDTO(Encounter encounter) {
+        if (encounter == null) {
+            throw new PokemonNotFoundException("Encounter not found");
+        }
+        EncounterDTO dto = new EncounterDTO();
+        dto.setId(encounter.getId());
+        dto.setPokemonName(encounter.getPokemon().getName());
+        dto.setMinLevel(encounter.getMinLevel());
+        dto.setMaxLevel(encounter.getMaxLevel());
+        dto.setTimeOfEncounter(encounter.getTimeOfEncounter());
+        dto.setEncounterRate(encounter.getEncounterRate());
+        dto.setEncounterMethod(encounter.getEncounterMethod());
+        dto.setVersions(encounter.getVersions());
+        dto.setSubLevel(encounter.getSubLevel());
+        return dto;
     }
 
 }

@@ -2,14 +2,15 @@ package com.anthony.pokemon.controller;
 
 import com.anthony.pokemon.dto.LocationDTO;
 import com.anthony.pokemon.exception.LocationNotFoundException;
+import com.anthony.pokemon.model.EncounterMethod;
+import com.anthony.pokemon.model.GameVersion;
+import com.anthony.pokemon.model.TimeOfEncounter;
 import com.anthony.pokemon.service.LocationService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/pokemon")
@@ -27,6 +28,24 @@ public class LocationController {
         locationService.initializeLocations();
         return ResponseEntity.ok().build();
     }
+
+    /* http://localhost:8080/pokemon/encounters/13?encounterMethod=SURFING */
+    @GetMapping ("/encounters/{locationId}")
+    ResponseEntity<List<LocationDTO>> getEncountersByMethod(
+            @PathVariable Long locationId,
+            @RequestParam(required = false)EncounterMethod encounterMethod,
+            @RequestParam(required = false) Set<TimeOfEncounter> timeOfEncounter) {
+        try {
+            List<LocationDTO> encounters = locationService.getEncountersByMethodAndTimeAndVersion(
+                    locationId,
+                    encounterMethod,
+                    timeOfEncounter);
+            return ResponseEntity.ok().body(encounters);
+        } catch (LocationNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
     /* Read operation that gets ALL location DTOs */
     @GetMapping("/getAllLocationDTOs")

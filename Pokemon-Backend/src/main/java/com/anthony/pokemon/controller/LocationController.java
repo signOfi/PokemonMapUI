@@ -29,22 +29,25 @@ public class LocationController {
         return ResponseEntity.ok().build();
     }
 
-    /* http://localhost:8080/pokemon/encounters/13?encounterMethod=SURFING */
-    @GetMapping ("/encounters/{locationId}")
-    ResponseEntity<List<LocationDTO>> getEncountersByMethod(
+    /* http://localhost:8080/pokemon/encounters/14?encounterMethod=WALKING&version=HG   */
+    @GetMapping("/encounters/{locationId}")
+    public ResponseEntity<List<LocationDTO>> getEncountersByParams(
             @PathVariable Long locationId,
-            @RequestParam(required = false)EncounterMethod encounterMethod,
-            @RequestParam(required = false) Set<TimeOfEncounter> timeOfEncounter) {
+            @RequestParam(required = false) Set<EncounterMethod> encounterMethods,
+            @RequestParam(required = false) GameVersion version,
+            @RequestParam(required = false) TimeOfEncounter requestedTime) {
         try {
-            List<LocationDTO> encounters = locationService.getEncountersByMethodAndTimeAndVersion(
+            List<LocationDTO> encounters = locationService.getEncountersByMethodAndVersion(
                     locationId,
-                    encounterMethod,
-                    timeOfEncounter);
+                    encounterMethods,
+                    version,
+                    requestedTime);
             return ResponseEntity.ok().body(encounters);
         } catch (LocationNotFoundException e) {
             return ResponseEntity.notFound().build();
         }
     }
+
 
 
     /* Read operation that gets ALL location DTOs */

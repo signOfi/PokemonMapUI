@@ -19,12 +19,16 @@ public class Location {
     private Long id;
     private String name;
 
+    @Column(length = 1000)
+    private String description;
+
     @OneToMany(mappedBy = "location", cascade = CascadeType.ALL)
     private List<Encounter> encounters = new ArrayList<>();
 
     /* Only populate name of location first */
-    public Location(String name) {
+    public Location(String name, String description) {
         this.name = name;
+        this.description = description;
     }
 
     public void addEncounter(Encounter encounter) {
@@ -33,7 +37,6 @@ public class Location {
             encounter.setLocation(this);
         }
     }
-
 
     @Override
     public String toString() {

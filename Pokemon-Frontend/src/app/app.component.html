@@ -1,4 +1,15 @@
-<app-home></app-home>
-<app-right-side></app-right-side>
-<app-below-map></app-below-map>
-<router-outlet />
+<div class="container">
+  <div class="left-column">
+    <div class="map-container">
+      <app-map></app-map>
+    </div>
+    <div class="location-image-container">
+      <app-location-image></app-location-image>
+    </div>
+  </div>
+  <div class="right-column">
+    <div class="information-container">
+      <app-information></app-information>
+    </div>
+  </div>
+</div>

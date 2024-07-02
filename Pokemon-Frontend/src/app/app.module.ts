@@ -4,25 +4,26 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { RightSideComponent } from './right-side/right-side.component';
-import { BelowMapComponent } from './below-map/below-map.component';
 import { PokemonImageComponent } from './pokemon-image/pokemon-image.component';
+import { MapComponent } from './map/map.component';
+import { InformationComponent } from './information/information.component';
+import { LocationImageComponent } from './location-image/location-image.component';
+import { LocationService } from "./services/location.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    RightSideComponent,
-    BelowMapComponent,
-    PokemonImageComponent
+    PokemonImageComponent,
+    MapComponent,
+    InformationComponent,
+    LocationImageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,9 +17,10 @@ public interface LocationService {
     Location saveLocation(Location location);
     List<LocationDTO> getAllLocationDTOs();
     LocationDTO getLocationDTOByName(String name);
-    List<LocationDTO> getEncountersByMethodAndTimeAndVersion(Long locationId,
-                                                     EncounterMethod encounterMethod,
-                                                     Set<TimeOfEncounter> timeOfEncounters);
+    public List<LocationDTO> getEncountersByMethodAndVersion(Long locationId,
+                                                             Set<EncounterMethod> encounterMethods,
+                                                             GameVersion requestedVersion,
+                                                             TimeOfEncounter requestedTime);
 
     LocationDTO convertToLocationDTO(Location location);
 

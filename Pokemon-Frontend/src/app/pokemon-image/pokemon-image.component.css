@@ -1,14 +1,14 @@
 .pokemon-container {
-  text-align: center;  // Centers the content
-margin: 10px;        // Adds some margin around each Pokémon image and name
+  text-align: center;
+margin: 10px;
 }
 
 .pokemon-image {
-  width: 50px;       // Sets the width of the image
-height: auto;       // Keeps the aspect ratio of the image
+  width: 50px;
+height: auto;
 }
 
 h3 {
-  color: #333;       // Sets the text color for the Pokémon name
-margin-top: 5px;   // Adds a small space between the image and the name
+  color: #333;
+margin-top: 5px;
 }

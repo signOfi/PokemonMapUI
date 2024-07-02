@@ -92,20 +92,37 @@ public class Encounter {
                 '}';
     }
 
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Encounter encounter = (Encounter) o;
+//        return Objects.equals(pokemon, encounter.pokemon) &&
+//                Objects.equals(minLevel, encounter.minLevel) &&
+//                Objects.equals(maxLevel, encounter.maxLevel) &&
+//                Objects.equals(timeOfEncounter, encounter.timeOfEncounter) &&
+//                Objects.equals(encounterRate, encounter.encounterRate) &&
+//                encounterMethod == encounter.encounterMethod &&
+//                Objects.equals(location, encounter.location) &&
+//                Objects.equals(subLevel, encounter.subLevel);
+//    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Encounter encounter = (Encounter) o;
-        return Objects.equals(pokemon, encounter.pokemon) &&
-                Objects.equals(minLevel, encounter.minLevel) &&
-                Objects.equals(maxLevel, encounter.maxLevel) &&
-                Objects.equals(timeOfEncounter, encounter.timeOfEncounter) &&
-                Objects.equals(encounterRate, encounter.encounterRate) &&
-                encounterMethod == encounter.encounterMethod &&
-                Objects.equals(location, encounter.location) &&
-                Objects.equals(subLevel, encounter.subLevel);
+        if (!(o instanceof Encounter that)) return false;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(pokemon, that.pokemon) &&
+                Objects.equals(minLevel, that.minLevel) &&
+                Objects.equals(maxLevel, that.maxLevel) &&
+                Objects.equals(timeOfEncounter, that.timeOfEncounter) &&
+                Objects.equals(encounterRate, that.encounterRate) &&
+                encounterMethod == that.encounterMethod &&
+                Objects.equals(versions, that.versions) &&
+                Objects.equals(location, that.location) &&
+                Objects.equals(subLevel, that.subLevel);
     }
+
 
     @Override
     public int hashCode() {

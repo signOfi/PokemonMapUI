@@ -48,7 +48,7 @@ public class LocationDTOTest {
 
         location.setEncounters(Collections.singletonList(encounter));
 
-        LocationDTO expectedDto = new LocationDTO(1L, "Sprout Tower", Collections.emptyList());
+        LocationDTO expectedDto = new LocationDTO(1L, "Sprout Tower", Collections.emptyList(), "Empty text");
 
         when(locationService.convertToLocationDTO(location)).thenReturn(expectedDto);
 

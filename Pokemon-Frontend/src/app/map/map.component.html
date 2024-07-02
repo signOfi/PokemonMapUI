@@ -1,0 +1,10 @@
+<div class="map-container">
+  <img src="assets/map.png" alt="Pokémon Map" usemap="#pokemon-map" class="map-image">
+  <map name="pokemon-map">
+    <!-- You'll add your coordinate areas here -->
+    <area shape="circle" coords="100,100,20" alt="Example Location" (click)="onAreaClick('Example Location')">
+  </map>
+</div>
+<div *ngIf="selectedLocation" class="location-info">
+  <h3>{{ selectedLocation }}</h3>
+</div>

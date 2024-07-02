@@ -1,6 +1,5 @@
 package com.anthony.pokemon.dto;
 
-import com.anthony.pokemon.model.Encounter;
 import com.anthony.pokemon.model.EncounterMethod;
 import com.anthony.pokemon.model.GameVersion;
 import com.anthony.pokemon.model.TimeOfEncounter;

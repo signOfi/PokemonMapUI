@@ -15,5 +15,6 @@ public class LocationDTO {
     private Long id;
     private String name;
     private List<EncounterDTO> encounters;
+    private String description;
 }
 

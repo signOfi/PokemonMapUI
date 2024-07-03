@@ -803,9 +803,9 @@ public class EncounterSetupService {
         newEncounters.add(new Encounter(meowth, 16, 16, night,
                 40.00, EncounterMethod.WALKING, soulSilver, route39));
 
-        newEncounters.add(new Encounter(rattata, 16, 16, allTimes,
+        newEncounters.add(new Encounter(rattata, 16, 16, morningDay,
                 30.00, EncounterMethod.WALKING, heartGold, route39));
-        newEncounters.add(new Encounter(rattata, 16, 16, allTimes,
+        newEncounters.add(new Encounter(rattata, 16, 16, night,
                 40.00, EncounterMethod.WALKING, heartGold, route39));
 
         for (Encounter encounter : newEncounters)

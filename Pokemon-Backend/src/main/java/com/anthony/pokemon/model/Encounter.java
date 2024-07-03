@@ -92,21 +92,6 @@ public class Encounter {
                 '}';
     }
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Encounter encounter = (Encounter) o;
-//        return Objects.equals(pokemon, encounter.pokemon) &&
-//                Objects.equals(minLevel, encounter.minLevel) &&
-//                Objects.equals(maxLevel, encounter.maxLevel) &&
-//                Objects.equals(timeOfEncounter, encounter.timeOfEncounter) &&
-//                Objects.equals(encounterRate, encounter.encounterRate) &&
-//                encounterMethod == encounter.encounterMethod &&
-//                Objects.equals(location, encounter.location) &&
-//                Objects.equals(subLevel, encounter.subLevel);
-//    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

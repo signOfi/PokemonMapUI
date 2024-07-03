@@ -15,7 +15,7 @@ export class LocationService {
   constructor(private http: HttpClient) { }
 
   getLocationById(locationId: number): Observable<LocationDTO> {
-    return this.http.get<LocationDTO>(`${this.apiUrl}/getLocationDTO/${locationId}`);
+    return this.http.get<LocationDTO>(`${this.apiUrl}/encounters/${locationId}`);
   }
 
   getEncountersByMethodsVersionAndTime(locationId: number, methods: string[], version: GameVersion, time: TimeOfEncounter): Observable<LocationDTO[]> {

@@ -1,7 +1,5 @@
 package com.anthony.pokemon.service;
 
-import com.anthony.pokemon.dto.EncounterDTO;
-import com.anthony.pokemon.exception.PokemonNotFoundException;
 import com.anthony.pokemon.model.Encounter;
 import com.anthony.pokemon.repository.EncounterRepository;
 import jakarta.transaction.Transactional;

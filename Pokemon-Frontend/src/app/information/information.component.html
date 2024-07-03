@@ -10,7 +10,7 @@
     <span class="section-label">Encounter Methods</span>
     <div class="button-grid method-buttons">
       <button *ngFor="let method of allMethods" (click)="toggleMethod(EncounterMethod[method])" [class.active]="defaultMethods.has(EncounterMethod[method])" [attr.data-method]="method">
-        {{ method | titlecase }}
+        {{ formatMethodName(method) }}
       </button>
     </div>
   </div>

@@ -1,11 +1,11 @@
-<div class="location-image-center">
+<div class="location-image-center" *ngIf="location">
   <div class="content-wrapper">
     <div class="location-image-wrapper">
-      <h3 class="location-name">Ilex Forest</h3>
-      <img src="assets/locationImages/ilex-forest.png" alt="Ilex Forest" class="location-image">
+      <h3 class="location-name">{{ getCurrentLocation().name }}</h3>
+      <img [src]="getImagePath()" [alt]="getCurrentLocation().name" class="location-image">
     </div>
     <div class="location-description">
-      <p>Ilex Forest is <strong>a dense forest located in Johto, to the west of Azalea Town and to the south of Goldenrod City</strong>. When the player first visits Ilex Forest, they can find a man who is looking for his Farfetch'd.</p>
+      <p>{{ getCurrentLocation().description }}</p>
     </div>
   </div>
 </div>

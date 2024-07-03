@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { LocationService } from '../services/location.service';
 import { LocationDTO } from '../models/locationDTO';
 import { GameVersion } from '../models/game-version.enum';
@@ -10,28 +10,48 @@ import { EncounterMethod } from '../models/encounter-method.enum';
   templateUrl: './information.component.html',
   styleUrls: ['./information.component.css']
 })
-export class InformationComponent implements OnInit {
+export class InformationComponent implements OnChanges {
+  @Input() location!: LocationDTO | LocationDTO[];
 
+  currentLocation: LocationDTO | null = null;
   locations: LocationDTO[] = [];
   defaultMethods: Set<EncounterMethod> = new Set([EncounterMethod.WALKING, EncounterMethod.SURFING]);
   allMethods = Object.values(EncounterMethod);
   currentVersion: GameVersion = GameVersion.HG;
   currentTimeOfEncounter: TimeOfEncounter = TimeOfEncounter.MORNING;
-  currentLocationId: number = 10;
 
   constructor(private locationService: LocationService) {}
 
-  ngOnInit(): void {
-    this.loadEncounters();
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnChanges called, location:', this.location);
+    if (changes['location']) {
+      this.currentLocation = Array.isArray(this.location) ? this.location[0] : this.location;
+      if (this.currentLocation && this.currentLocation.id) {
+        this.loadEncounters();
+      }
+    }
   }
 
   loadEncounters(): void {
-    this.locationService.getEncountersByMethodsVersionAndTime(this.currentLocationId, Array.from(this.defaultMethods), this.currentVersion, this.currentTimeOfEncounter).subscribe({
-      next: (data: LocationDTO[]) => this.locations = data,
+    console.log('loadEncounters called, currentLocation:', this.currentLocation);
+    if (!this.currentLocation || !this.currentLocation.id) {
+      console.error('Location or location ID is undefined');
+      return;
+    }
+
+    this.locationService.getEncountersByMethodsVersionAndTime(
+      this.currentLocation.id,
+      Array.from(this.defaultMethods),
+      this.currentVersion,
+      this.currentTimeOfEncounter
+    ).subscribe({
+      next: (data: LocationDTO[]) => {
+        console.log('Encounters loaded:', data);
+        this.locations = data;
+      },
       error: (error: any) => console.error('Failed to fetch data:', error)
     });
   }
-
 
   toggleMethod(method: EncounterMethod): void {
     if (this.defaultMethods.has(method)) {
@@ -66,6 +86,10 @@ export class InformationComponent implements OnInit {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
         .join(' ');
     }).join(', ');
+  }
+
+  formatMethodName(method: string): string {
+    return method.replace(/_/g, ' ').toLowerCase().replace(/\b\w/g, l => l.toUpperCase());
   }
 
 

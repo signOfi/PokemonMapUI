@@ -4,12 +4,14 @@
       <app-map></app-map>
     </div>
     <div class="location-image-container">
-      <app-location-image></app-location-image>
+      <app-location-image *ngIf="selectedLocation" [location]="selectedLocation"></app-location-image>
     </div>
   </div>
   <div class="right-column">
     <div class="information-container">
-      <app-information></app-information>
+      <app-information *ngIf="selectedLocation" [location]="selectedLocation"></app-information>
     </div>
   </div>
 </div>
+<img src="assets/hgsslogo.png" alt="Pokémon HeartGold and SoulSilver" class="logo-overlay">
+

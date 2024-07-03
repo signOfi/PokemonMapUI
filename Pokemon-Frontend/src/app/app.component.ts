@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocationDTO } from './models/locationDTO';
 import { LocationService } from './services/location.service';
 
@@ -7,16 +7,20 @@ import { LocationService } from './services/location.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  selectedLocation: LocationDTO | null = null;
+export class AppComponent implements OnInit {
+  selectedLocation: LocationDTO | LocationDTO[] | null = null;
 
   constructor(private locationService: LocationService) {}
 
-  onLocationSelected(locationId: number) {
-    this.locationService.getLocationById(locationId).subscribe(
-      (location: LocationDTO) => {
+  ngOnInit() {
+    this.loadLocation(46);
+  }
+
+  loadLocation(locationId: number) {
+    this.locationService.getLocationById(locationId).subscribe({
+      next: (location: LocationDTO | LocationDTO[]) => {
         this.selectedLocation = location;
-      }
-    );
+      },
+    });
   }
 }

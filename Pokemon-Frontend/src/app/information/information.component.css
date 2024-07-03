@@ -2,37 +2,30 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  background-color: #1e3a5a;
+  padding: 20px;
 }
 
 .controls-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   gap: 20px;
   margin-bottom: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #2c4c6e;
+  flex-shrink: 0;
 }
-
-.section-label {
-  font-weight: bold;
-  color: #13556c;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.button-grid {
-  display: grid;
-  gap: 10px;
-}
-
-.method-section .section-label,
-.time-section .section-label,
-.version-section .section-label {
-  color: white;
-}
-
 
 .version-section, .method-section, .time-section {
-  flex: 1;
-  min-width: 200px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .section-label {
@@ -44,14 +37,29 @@
   letter-spacing: 1px;
 }
 
+.section-label, .location-description {
+  color: #f0f0f0;
+}
+
 .button-grid {
   display: grid;
-  flex-direction: column;
   gap: 10px;
 }
 
+.version-section .button-grid,
+.time-section .button-grid {
+  grid-template-columns: 1fr;
+}
+
+.method-section .button-grid {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
 button {
-  padding: 8px 12px;
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
   border: 1px solid #13556c;
   background-color: white;
   color: #13556c;
@@ -63,6 +71,19 @@ button {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #13556c;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button.active {
+  background-color: #13556c;
+  color: white;
 }
 
 button:hover {
@@ -82,30 +103,14 @@ button:hover {
 .method-buttons .active[data-method="GIFT"] { background-color: #FFC0CB; color: white; }
 .method-buttons .active[data-method="ENCOUNTER"] { background-color: #ad0d45; color: white; }
 
-.method-buttons .button-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
 .time-buttons .active[data-time="MORNING"] { background-color: #FFA500; color: white; }
 .time-buttons .active[data-time="DAY"] { background-color: #FFD700; color: white; }
 .time-buttons .active[data-time="NIGHT"] { background-color: #4B0082; color: white; }
 
-.time-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.time-buttons button {
-  flex: 1;
-  max-width: 100px;
-  margin: 0 5px;
-  padding: 5px 10px;
-  font-size: 14px;
-}
-
 .table-container {
   flex-grow: 1;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: auto;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -114,40 +119,45 @@ button:hover {
 .encounter-table {
   width: 100%;
   min-width: 600px;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   background-color: white;
-}
-
-.encounter-table th {
-  background-color: #0c3a4d;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  padding: 15px 10px;
-  font-size: 16px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .encounter-table th, .encounter-table td {
-  padding: 10px;
+  padding: 12px;
   text-align: center;
-  border: 1px solid #ccc;
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #ccc;
 }
 
 .encounter-table th {
-  background-color: #13556c;
+  background-color: #7294c9;
   color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   position: sticky;
   top: 0;
   z-index: 10;
+}
+
+.encounter-table tr:last-child td {
+  border-bottom: none;
+}
+
+.encounter-table th:last-child, .encounter-table td:last-child {
+  border-right: none;
+}
+
+.encounter-table tr:hover {
+  background-color: #e0e0e0;
 }
 
 .encounter-table td {
   vertical-align: middle;
-}
-
-.encounter-table td:first-child {
-  text-align: center;
 }
 
 .app-pokemon-image {
@@ -161,86 +171,27 @@ button:hover {
   object-fit: contain;
 }
 
+@media (max-width: 1024px) {
+  .controls-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .method-section {
+    grid-column: span 2;
+  }
+}
+
 @media (max-width: 768px) {
+  .controls-container {
+    grid-template-columns: 1fr;
+  }
+  .method-section {
+    grid-column: auto;
+  }
   .table-container {
-    width: 100%;
-    overflow-x: auto;  // Ensures horizontal scrolling
+    overflow-x: auto;
   }
-
-  .encounter-table {
-    min-width: 600px;  // Adjust based on your content needs
-  }
-
   .encounter-table th, .encounter-table td {
-    padding: 5px; // Reduced padding
-  font-size: 12px; // Smaller font size for better visibility
-  }
-}
-
-
-@media (min-width: 1200px) {
-  .controls-container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-}
-
-@media (max-width: 1024px) and (min-width: 769px) {
-  .controls-container {
-    flex-wrap: wrap;
-  }
-  .version-section, .method-section, .time-section {
-    flex-basis: calc(50% - 10px);
-  }
-  .button-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  button {
-    font-size: 12px;
     padding: 8px;
-    height: auto;
-  }
-  .table-container {
-    max-height: 40vh;
-    overflow-y: auto;
-  }
-}
-
-@media (max-width: 1366px) and (min-width: 769px) {
-  .controls-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  .version-section, .method-section, .time-section {
-    width: 48%;
-    margin-bottom: 10px;
-  }
-  .button-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  button {
     font-size: 12px;
-    padding: 6px;
-    height: 30px;
-  }
-  .table-container {
-    max-height: calc(60vh - 300px);
-    overflow-y: auto;
-  }
-}
-
-@media (min-width: 1025px) {
-  .controls-container {
-    flex-wrap: nowrap;
-  }
-}
-
-@media (max-width: 768px) {
-  .table-container {
-    min-width: 100%;
-    overflow-x: scroll;
   }
 }

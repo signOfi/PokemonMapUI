@@ -1,0 +1,65 @@
+<div class="controls-container">
+  <div class="version-section">
+    <span class="section-label">Versions</span>
+    <div class="button-grid version-buttons">
+      <button (click)="toggleVersion()" [class.active]="currentVersion === GameVersion.HG" [attr.data-version]="GameVersion.HG">HeartGold</button>
+      <button (click)="toggleVersion()" [class.active]="currentVersion === GameVersion.SS" [attr.data-version]="GameVersion.SS">SoulSilver</button>
+    </div>
+  </div>
+  <div class="method-section">
+    <span class="section-label">Encounter Methods</span>
+    <div class="button-grid method-buttons">
+      <button *ngFor="let method of allMethods" (click)="toggleMethod(EncounterMethod[method])" [class.active]="defaultMethods.has(EncounterMethod[method])" [attr.data-method]="method">
+        {{ formatMethodName(method) }}
+      </button>
+    </div>
+  </div>
+  <div class="time-section">
+    <span class="section-label">Time of Day</span>
+    <div class="button-grid time-buttons">
+      <button (click)="setTimeOfEncounter(TimeOfEncounter.MORNING)" [class.active]="currentTimeOfEncounter === TimeOfEncounter.MORNING" [attr.data-time]="TimeOfEncounter.MORNING">Morning</button>
+      <button (click)="setTimeOfEncounter(TimeOfEncounter.DAY)" [class.active]="currentTimeOfEncounter === TimeOfEncounter.DAY" [attr.data-time]="TimeOfEncounter.DAY">Day</button>
+      <button (click)="setTimeOfEncounter(TimeOfEncounter.NIGHT)" [class.active]="currentTimeOfEncounter === TimeOfEncounter.NIGHT" [attr.data-time]="TimeOfEncounter.NIGHT">Night</button>
+    </div>
+  </div>
+</div>
+
+<div class="table-container">
+  <table class="encounter-table">
+    <thead>
+    <tr>
+      <th *ngIf="hasSubLevels()">Sub Level</th>
+      <th>Pokemon</th>
+      <th>Name</th>
+      <th>Encounter Rate</th>
+      <th>Min Level</th>
+      <th>Max Level</th>
+      <th>Encounter Method</th>
+      <th>Version</th>
+      <th>Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let encounter of locations[0]?.encounters">
+      <td *ngIf="hasSubLevels()">{{ encounter.subLevel }}</td>
+      <td><app-pokemon-image [pokemonName]="encounter.pokemonName"></app-pokemon-image></td>
+      <td>{{ encounter.pokemonName | titlecase }}</td>
+      <td>{{ encounter.encounterRate }}%</td>
+      <td>{{ encounter.minLevel }}</td>
+      <td>{{ encounter.maxLevel }}</td>
+      <td>
+        {{ formatEncounterMethod(encounter.encounterMethod) }}
+      </td>
+      <td>
+        <img [src]="getVersionImage(getVersionString(encounter.versions))"
+             [alt]="currentVersion"
+             class="version-icon">
+      </td>
+      <td>
+        <img [src]="getTimeImage(getTimeString(encounter.timeOfEncounter))"
+             [alt]="currentTimeOfEncounter"
+             class="time-icon">
+      </td>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,78 @@
+<div class="map-container">
+  <img src="assets/map.png" alt="Pokémon Map" class="map-image">
+  <svg #mapOverlay viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" class="map-overlay">
+
+    <!-- Cities and Towns -->
+    <rect x="345" y="265" width="70" height="70" rx="10" ry="10" class="map-area" (click)="onAreaClick('Violet City', $event)" data-name="Violet City" />
+    <rect x="276" y="504" width="70" height="35" rx="10" ry="10" class="map-area" (click)="onAreaClick('Azalea Town', $event)" data-name="Azalea Town" />
+    <rect x="176" y="368" width="100" height="68" class="map-area" rx="10" ry="10" (click)="onAreaClick('Goldenrod City', $event)" data-name="Goldenrod City" />
+    <rect x="39.5" y="368" width="35" height="68" rx="10" ry="10" class="map-area" (click)="onAreaClick('Cianwood City', $event)" data-name="Cianwood City" />
+    <rect x="411" y="197" width="36" height="36" rx="10" ry="10" class="map-area" (click)="onAreaClick('Mahogany Town', $event)" data-name="Mahogany Town" />
+    <rect x="411" y="433" width="70" height="37" rx="10" ry="10" class="map-area" (click)="onAreaClick('Cherrygrove City', $event)" data-name="Cherrygrove City" />
+    <rect x="582" y="435" width="34" height="36" rx="10" ry="10" class="map-area" (click)="onAreaClick('New Bark Town', $event)" data-name="New Bark Town" />
+    <rect x="242" y="163" width="70" height="70" rx="10" ry="10" class="map-area" (click)="onAreaClick('Ecruteak City', $event)" data-name="Ecruteak City" />
+    <rect x="140" y="266" width="70" height="70" rx="10" ry="10" class="map-area" (click)="onAreaClick('Olivine City', $event)" data-name="Olivine City" />
+    <rect x="548" y="163" width="70" height="70" rx="10" ry="10" class="map-area blackthorn-city" (click)="onAreaClick('Blackthorn City', $event)" data-name="Blackthorn City" />
+
+    <!-- Routes -->
+    <rect x="353" y="343" width="17" height="129" class="map-area" (click)="onAreaClick('Route 32', $event)" data-name="Route 32" />
+    <rect x="353" y="505" width="17" height="24" class="map-area" (click)="onAreaClick('Route 33', $event)" data-name="Route 33" />
+    <rect x="251" y="444" width="15" height="60" class="map-area" (click)="onAreaClick('Route 34', $event)" data-name="Route 34" />
+    <rect x="250" y="290" width="17" height="70" class="map-area" (click)="onAreaClick('Route 35', $event)" data-name="Route 35" />
+    <rect x="270" y="275" width="68" height="17" class="map-area" (click)="onAreaClick('Route 36', $event)" data-name="Route 36" />
+    <rect x="284.5" y="240" width="16" height="34" class="map-area" (click)="onAreaClick('Route 37', $event)" data-name="Route 37" />
+    <rect x="-53" y="368" width="50" height="40" class="map-area" (click)="onAreaClick('Route 48', $event)" data-name="Route 48" />
+    <rect x="-53" y="408" width="85" height="52.5" class="map-area" (click)="onAreaClick('Route 47', $event)" data-name="Route 47" />
+    <rect x="81" y="375" width="52" height="53" rx="10" ry="10" class="map-area" (click)="onAreaClick('Route 41', $event)" data-name="Route 41" />
+    <rect x="117" y="310" width="14.5" height="67" class="map-area" (click)="onAreaClick('Route 40', $event)" data-name="Route 40" />
+    <rect x="149" y="207" width="16" height="50" class="map-area" (click)="onAreaClick('Route 39', $event)" data-name="Route 39" />
+    <rect x="168" y="207" width="67" height="17" class="map-area" (click)="onAreaClick('Route 38', $event)" data-name="Route 38" />
+    <rect x="454" y="207" width="85" height="16.5" class="map-area" (click)="onAreaClick('Route 44', $event)" data-name="Route 44" />
+    <rect x="420" y="140" width="18" height="51" class="map-area" (click)="onAreaClick('Route 43', $event)" data-name="Route 43" />
+    <rect x="751" y="311" width="68" height="15" class="map-area" (click)="onAreaClick('Route 28', $event)" data-name="Route 28" />
+    <rect x="854" y="311" width="36" height="15" class="map-area" (click)="onAreaClick('Route 22', $event)" data-name="Route 22" />
+    <rect x="420" y="308" width="29" height="18" class="map-area" (click)="onAreaClick('Route 31', $event)" data-name="Route 31" />
+    <rect x="454" y="331" width="20" height="97" class="map-area" (click)="onAreaClick('Route 30', $event)" data-name="Route 30" />
+    <rect x="522" y="402" width="18" height="41" class="map-area" (click)="onAreaClick('Route 46', $event)" data-name="Route 46" />
+    <rect x="488" y="445" width="87" height="16" class="map-area" (click)="onAreaClick('Route 29', $event)" data-name="Route 29" />
+    <rect x="557" y="264" width="16" height="129" class="map-area" (click)="onAreaClick('Route 45', $event)" data-name="Route 45" />
+    <rect x="624" y="446.2" width="200" height="15.5" class="map-area" (click)="onAreaClick('Route 27', $event)" data-name="Route 27" />
+    <rect x="320" y="207" width="83" height="16.5" class="map-area route42" (click)="onAreaClick('Route 42', $event)" data-name="Route 42" />
+    <rect x="829" y="332" width="14" height="128" class="map-area" (click)="onAreaClick('Route 26', $event)" data-name="Route 26" />
+
+    <!-- Special Locations -->
+    <rect x="310" y="300" width="35" height="70" rx="10" ry="10" class="map-area" (click)="onAreaClick('Ruins of Alph', $event)" data-name="Ruins of Alph" />
+    <rect x="351" y="475" width="22" height="25" class="map-area" rx="10" ry="10" (click)="onAreaClick('Union Cave', $event)" data-name="Union Cave" />
+    <rect x="248" y="508" width="21" height="25" rx="10" ry="10" class="map-area" (click)="onAreaClick('Ilex Forest', $event)" data-name="Ilex Forest" />
+    <rect x="111" y="404" width="23" height="23" rx="10" ry="10" class="map-area whirl-islands" (click)="onAreaClick('Whirl Islands', $event)" data-name="Whirl Islands" />
+    <rect x="379" y="62" width="102" height="71" rx="10" ry="10" class="map-area" (click)="onAreaClick('Lake of Rage', $event)" data-name="Lake of Rage" />
+    <rect x="521" y="373" width="21" height="22" class="map-area" rx="10" (click)="onAreaClick('Dark cave Route 45', $event)" data-name="Dark cave Route 45" />
+    <rect x="555" y="240" width="21" height="22" class="map-area" rx="10" (click)="onAreaClick('Dark cave Route 45', $event)" data-name="Dark cave Route 45" />
+    <rect x="450" y="303" width="27" height="27" rx="10" ry="10" class="map-area" (click)="onAreaClick('Dark cave Route 31', $event)" data-name="Dark Cave Route 31" />
+    <rect x="90.5" y="247.3" width="33" height="38" rx="10" ry="10" class="map-area" (click)="onAreaClick('Battle Frontier', $event)" data-name="Battle Frontier" />
+    <rect x="225" y="249" width="35" height="36" rx="10" ry="10" class="map-area" (click)="onAreaClick('National Park', $event)" data-name="National Park" />
+    <rect x="-54" y="308.5" width="53" height="53" rx="10" ry="10" class="map-area" (click)="onAreaClick('Safari Zone Gate', $event)" data-name="Safari Zone Gate" />
+    <rect x="827" y="275" width="18" height="52" rx="10" ry="10" class="map-area" (click)="onAreaClick('Victory Road', $event)" data-name="Victory Road" />
+    <rect x="725" y="307" width="20" height="22" rx="10" class="map-area" (click)="onAreaClick('Mt Silver', $event)" data-name="Mt Silver" />
+    <rect x="827" y="240" width="18" height="33" rx="10" ry="10" class="map-area" (click)="onAreaClick('Indigo Plateau', $event)" data-name="Indigo Plateau" />
+    <rect x="382" y="270" width="25" height="25" rx="10" ry="10" class="map-area sprout-tower" (click)="onAreaClick('Sprout Tower', $event)" data-name="Sprout Tower" />
+    <rect x="317" y="509" width="21" height="21" rx="10" ry="10" class="map-area slowpoke-well" (click)="onAreaClick('Slowpoke Well', $event)" data-name="Slowpoke Well" />
+    <rect x="248" y="170" width="24" height="24" rx="10" ry="10" class="map-area burned-tower" (click)="onAreaClick('Burned Tower', $event)" data-name="Burned Tower" />
+    <rect x="282" y="169" width="24" height="24" rx="10" ry="10" class="map-area bell-tower" (click)="onAreaClick('Bell Tower', $event)" data-name="Bell Tower" />
+    <rect x="180" y="305" width="24" height="24" rx="10" ry="10" class="map-area shining-lighthouse" (click)="onAreaClick('Shining Lighthouse', $event)" data-name="Shining Lighthouse" />
+    <rect x="560" y="135" width="25" height="25" rx="10" ry="10" class="map-area dragons-den" (click)="onAreaClick('Dragon\'s Den', $event)" data-name="Dragon's Den" />
+    <rect x="655" y="441" width="24" height="23" rx="10" ry="10" class="map-area tohjo-falls" (click)="onAreaClick('Tohjo Falls', $event)" data-name="Tohjo Falls" />
+    <rect x="586" y="168" width="25" height="25" rx="10" ry="10" class="map-area ice-path" (click)="onAreaClick('Ice Path', $event)" data-name="Ice Path" />
+    <rect x="353" y="207" width="17" height="18.7" rx="10" ry="10" class="map-area mt-mortar" (click)="onAreaClick('Mt. Mortar', $event)" data-name="Mt. Mortar" />
+
+    <!-- Tooltip -->
+    <g id="tooltip" visibility="hidden">
+      <rect id="tooltip-bg" x="0" y="0" width="140" height="30" rx="5" ry="5"/>
+      <text id="tooltip-text" x="70" y="15" text-anchor="middle" dominant-baseline="middle" fill="white"></text>
+    </g>
+  </svg>
+</div>
+
+<div id="info-panel" class="info-panel">
+  <p id="info-description">Click on a map area to learn more.</p>
+</div>

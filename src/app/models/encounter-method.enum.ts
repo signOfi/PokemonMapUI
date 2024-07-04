@@ -1,0 +1,10 @@
+export enum EncounterMethod {
+  WALKING = 'WALKING',
+  SURFING = 'SURFING',
+  OLD_ROD = 'OLD_ROD',
+  GOOD_ROD = 'GOOD_ROD',
+  SUPER_ROD = 'SUPER_ROD',
+  GIFT = 'GIFT',
+  ENCOUNTER = 'ENCOUNTER',
+  ROCK_SMASH = 'ROCK_SMASH'
+}

@@ -1,0 +1,11 @@
+<div class="location-image-center" *ngIf="location">
+  <div class="content-wrapper">
+    <div class="location-image-wrapper">
+      <h3 class="location-name">{{ getCurrentLocation().name }}</h3>
+      <img [src]="getImagePath()" [alt]="getCurrentLocation().name" class="location-image">
+    </div>
+    <div class="location-description">
+      <p>{{ getCurrentLocation().description }}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+.pokemon-container {
+  text-align: center;
+margin: 10px;
+}
+
+.pokemon-image {
+  width: 50px;
+height: auto;
+}
+
+h3 {
+  color: #333;
+margin-top: 5px;
+}

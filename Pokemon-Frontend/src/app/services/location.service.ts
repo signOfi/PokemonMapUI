@@ -18,6 +18,10 @@ export class LocationService {
     return this.http.get<LocationDTO>(`${this.apiUrl}/encounters/${locationId}`);
   }
 
+  getLocationByName(name: string): Observable<LocationDTO> {
+    return this.http.get<LocationDTO>(`${this.apiUrl}/getLocationDTO/${name}`);
+  }
+
   getEncountersByMethodsVersionAndTime(locationId: number, methods: string[], version: GameVersion, time: TimeOfEncounter): Observable<LocationDTO[]> {
     let params = new HttpParams()
       .set('encounterMethods', methods.join(','))

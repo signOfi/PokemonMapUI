@@ -96,6 +96,14 @@ public class EncounterSetupService {
         initializeCianwoodCity();
         initializeCherrygroveCity();
         initializeBlackthornCity();
+        initializeRoute26();
+        initializeRoute27();
+        initializeTohjoFalls();
+        initializeVictoryRoad();
+
+        initializeRoute22();
+        initializeRoute28();
+        initializeMtSilver();
     }
 
     @Transactional
@@ -506,7 +514,7 @@ public class EncounterSetupService {
         newEncounters.add(new Encounter(abra, 10, 10, allTimes,
                 10.00, EncounterMethod.WALKING, allVersions, route34));
         newEncounters.add(new Encounter(ditto, 10, 10, allTimes,
-                10.00, EncounterMethod.WALKING, allVersions, route34));
+                5.00, EncounterMethod.WALKING, allVersions, route34));
 
         newEncounters.add(new Encounter(tentacool, 10, 25, allTimes,
                 90.00, EncounterMethod.SURFING, allVersions, route34));
@@ -644,8 +652,6 @@ public class EncounterSetupService {
                 10.00, EncounterMethod.WALKING, soulSilver, route36));
         newEncounters.add(new Encounter(vulpix, 13, 15, day,
                 15.00, EncounterMethod.WALKING, soulSilver, route36));
-        newEncounters.add(new Encounter(stantler, 13, 13, allTimes,
-                25.00, EncounterMethod.WALKING, allVersions, route36));
         newEncounters.add(new Encounter(pidgey, 12, 15, morning,
                 25.00, EncounterMethod.WALKING, allVersions, route36));
         newEncounters.add(new Encounter(pidgey, 12, 15, day,
@@ -746,7 +752,7 @@ public class EncounterSetupService {
         newEncounters.add(new Encounter(farfetch, 16, 16, allTimes,
                 5.00, EncounterMethod.WALKING, allVersions, route38));
         newEncounters.add(new Encounter(magnemite, 16, 16, allTimes,
-                5.00, EncounterMethod.WALKING, allVersions, route38));
+                20.00, EncounterMethod.WALKING, allVersions, route38));
         newEncounters.add(new Encounter(raticate, 16, 16, allTimes,
                 30.00, EncounterMethod.WALKING, allVersions, route38));
         newEncounters.add(new Encounter(meowth, 16, 16, allTimes,
@@ -2208,7 +2214,7 @@ public class EncounterSetupService {
         newEncounters.add(new Encounter(dunsparce, 4, 8, allTimes,
                 90.00, EncounterMethod.ROCK_SMASH, allVersions, darkCave));
 
-        newEncounters.add(new Encounter(geodude, 2, 20, allTimes,
+        newEncounters.add(new Encounter(magikarp, 2, 20, allTimes,
                 100.00, EncounterMethod.SURFING, allVersions, darkCave));
 
         newEncounters.add(new Encounter(magikarp, 10, 10, allTimes,
@@ -2264,7 +2270,7 @@ public class EncounterSetupService {
                 5.00, EncounterMethod.WALKING, allVersions, darkCave));
 
 
-        newEncounters.add(new Encounter(geodude, 2, 20, allTimes,
+        newEncounters.add(new Encounter(magikarp, 2, 20, allTimes,
                 100.00, EncounterMethod.SURFING, allVersions, darkCave));
 
         newEncounters.add(new Encounter(magikarp, 10, 10, allTimes,
@@ -2962,5 +2968,853 @@ public class EncounterSetupService {
         locationService.saveLocation(sproutTower);
     }
 
+    @Transactional
+    protected void initializeRoute26() {
+
+        newEncounters = new ArrayList<>();
+        Location route26 = locationService.getLocationByName("Route 26");
+
+        Pokemon doduo = pokemonService.getByName("doduo");
+        Pokemon sandslash = pokemonService.getByName("sandslash");
+        Pokemon ponyta = pokemonService.getByName("ponyta");
+        Pokemon raticate = pokemonService.getByName("raticate");
+        Pokemon dodrio = pokemonService.getByName("dodrio");
+        Pokemon arbok = pokemonService.getByName("arbok");
+        Pokemon quagsire = pokemonService.getByName("quagsire");
+        Pokemon tentacool = pokemonService.getByName("tentacool");
+        Pokemon tentacruel = pokemonService.getByName("tentacruel");
+        Pokemon magikarp = pokemonService.getByName("magikarp");
+        Pokemon chinchou = pokemonService.getByName("chinchou");
+        Pokemon shellder = pokemonService.getByName("shellder");
+        Pokemon lanturn = pokemonService.getByName("lanturn");
+
+
+        newEncounters.add(new Encounter(doduo, 28, 30, morningDay, 40.00,
+                EncounterMethod.WALKING, heartGold, route26));
+        newEncounters.add(new Encounter(sandslash, 28, 28, morningDay, 5.00,
+                EncounterMethod.WALKING, heartGold, route26));
+        newEncounters.add(new Encounter(ponyta, 32, 32, morningDay, 20.00,
+                EncounterMethod.WALKING, heartGold, route26));
+        newEncounters.add(new Encounter(raticate, 30, 30, morningDay, 5.00,
+                EncounterMethod.WALKING, heartGold, route26));
+        newEncounters.add(new Encounter(dodrio, 30, 30, morningDay, 5.00,
+                EncounterMethod.WALKING, heartGold, route26));
+        newEncounters.add(new Encounter(doduo, 28, 30, morningDay, 40.00,
+                EncounterMethod.WALKING, soulSilver, route26));
+        newEncounters.add(new Encounter(ponyta, 32, 32, morningDay, 20.00,
+                EncounterMethod.WALKING, soulSilver, route26));
+        newEncounters.add(new Encounter(raticate, 28, 30, morningDay, 35.00,
+                EncounterMethod.WALKING, soulSilver, route26));
+        newEncounters.add(new Encounter(arbok, 30, 30, morningDay, 5.00,
+                EncounterMethod.WALKING, soulSilver, route26));
+
+
+        newEncounters.add(new Encounter(raticate, 28, 28, night, 50.00,
+                EncounterMethod.WALKING, soulSilver, route26));
+        newEncounters.add(new Encounter(ponyta, 32, 32, night, 20.00,
+                EncounterMethod.WALKING, soulSilver, route26));
+        newEncounters.add(new Encounter(doduo, 30, 30, night, 5.00,
+                EncounterMethod.WALKING, soulSilver, route26));
+        newEncounters.add(new Encounter(arbok, 30, 30, night, 5.00,
+                EncounterMethod.WALKING, soulSilver, route26));
+        newEncounters.add(new Encounter(raticate, 28, 30, night, 40.00,
+                EncounterMethod.WALKING, heartGold, route26));
+        newEncounters.add(new Encounter(sandslash, 28, 28, night, 30.00,
+                EncounterMethod.WALKING, heartGold, route26));
+        newEncounters.add(new Encounter(ponyta, 32, 32, night, 20.00,
+                EncounterMethod.WALKING, heartGold, route26));
+        newEncounters.add(new Encounter(quagsire, 30, 30, night, 10.00,
+                EncounterMethod.WALKING, heartGold, route26));
+
+
+        newEncounters.add(new Encounter(tentacool, 25, 30, allTimes, 90.00,
+                EncounterMethod.SURFING, allVersions, route26));
+        newEncounters.add(new Encounter(tentacruel, 30, 30, allTimes, 10.00,
+                EncounterMethod.SURFING, allVersions, route26));
+
+        newEncounters.add(new Encounter(tentacool, 10, 10, allTimes, 95.00,
+                EncounterMethod.OLD_ROD, allVersions, route26));
+        newEncounters.add(new Encounter(tentacruel, 10, 10, allTimes, 5.00,
+                EncounterMethod.OLD_ROD, allVersions, route26));
+
+
+        newEncounters.add(new Encounter(magikarp, 20, 20, allTimes, 60.00,
+                EncounterMethod.GOOD_ROD, allVersions, route26));
+        newEncounters.add(new Encounter(tentacool, 20, 20, allTimes, 30.00,
+                EncounterMethod.GOOD_ROD, allVersions, route26));
+        newEncounters.add(new Encounter(chinchou, 20, 20, allTimes, 7.00,
+                EncounterMethod.GOOD_ROD, allVersions, route26));
+        newEncounters.add(new Encounter(shellder, 20, 20, allTimes, 3.00,
+                EncounterMethod.GOOD_ROD, allVersions, route26));
+
+
+        newEncounters.add(new Encounter(chinchou, 40, 40, allTimes, 60.00,
+                EncounterMethod.SUPER_ROD, allVersions, route26));
+        newEncounters.add(new Encounter(shellder, 40, 40, allTimes, 30.00,
+                EncounterMethod.SUPER_ROD, allVersions, route26));
+        newEncounters.add(new Encounter(tentacruel, 40, 40, allTimes, 7.00,
+                EncounterMethod.SUPER_ROD, allVersions, route26));
+        newEncounters.add(new Encounter(lanturn, 40, 40, allTimes, 3.00,
+                EncounterMethod.SUPER_ROD, allVersions, route26));
+
+
+
+        for (Encounter encounter : newEncounters)
+            if (!encounterManager.containsEncounter(encounter))
+                route26.addEncounter(encounter);
+
+        locationService.saveLocation(route26);
+    }
+
+    @Transactional
+    protected void initializeRoute27() {
+        newEncounters = new ArrayList<>();
+        Location route27 = locationService.getLocationByName("Route 27");
+
+        Pokemon doduo = pokemonService.getByName("doduo");
+        Pokemon sandslash = pokemonService.getByName("sandslash");
+        Pokemon ponyta = pokemonService.getByName("ponyta");
+        Pokemon raticate = pokemonService.getByName("raticate");
+        Pokemon dodrio = pokemonService.getByName("dodrio");
+        Pokemon arbok = pokemonService.getByName("arbok");
+        Pokemon quagsire = pokemonService.getByName("quagsire");
+        Pokemon tentacool = pokemonService.getByName("tentacool");
+        Pokemon tentacruel = pokemonService.getByName("tentacruel");
+        Pokemon magikarp = pokemonService.getByName("magikarp");
+        Pokemon chinchou = pokemonService.getByName("chinchou");
+        Pokemon shellder = pokemonService.getByName("shellder");
+        Pokemon lanturn = pokemonService.getByName("lanturn");
+
+        newEncounters.add(new Encounter(doduo, 28, 30, morningDay, 50.00,
+                EncounterMethod.WALKING, heartGold, route27));
+        newEncounters.add(new Encounter(raticate, 28, 30, morningDay, 40.00,
+                EncounterMethod.WALKING, heartGold, route27));
+        newEncounters.add(new Encounter(sandslash, 20, 20, morningDay, 5.00,
+                EncounterMethod.WALKING, heartGold, route27));
+        newEncounters.add(new Encounter(ponyta, 32, 32, morningDay, 5.00,
+                EncounterMethod.WALKING, heartGold, route27));
+
+        newEncounters.add(new Encounter(doduo, 28, 30, morningDay, 40.00,
+                EncounterMethod.WALKING, soulSilver, route27));
+        newEncounters.add(new Encounter(arbok, 28, 28, morningDay, 30.00,
+                EncounterMethod.WALKING, soulSilver, route27));
+        newEncounters.add(new Encounter(raticate, 30, 30, morningDay, 20.00,
+                EncounterMethod.WALKING, soulSilver, route27));
+        newEncounters.add(new Encounter(ponyta, 32, 32, morningDay, 5.00,
+                EncounterMethod.WALKING, soulSilver, route27));
+        newEncounters.add(new Encounter(dodrio, 30, 30, morningDay, 5.00,
+                EncounterMethod.WALKING, soulSilver, route27));
+
+        newEncounters.add(new Encounter(quagsire, 28, 30, night, 50.00,
+                EncounterMethod.WALKING, heartGold, route27));
+        newEncounters.add(new Encounter(raticate, 28, 30, night, 40.00,
+                EncounterMethod.WALKING, heartGold, route27));
+        newEncounters.add(new Encounter(sandslash, 20, 20, night, 5.00,
+                EncounterMethod.WALKING, heartGold, route27));
+        newEncounters.add(new Encounter(ponyta, 32, 32, night, 5.00,
+                EncounterMethod.WALKING, heartGold, route27));
+
+        newEncounters.add(new Encounter(quagsire, 28, 30, night, 55.00,
+                EncounterMethod.WALKING, soulSilver, route27));
+        newEncounters.add(new Encounter(arbok, 28, 28, night, 30.00,
+                EncounterMethod.WALKING, soulSilver, route27));
+        newEncounters.add(new Encounter(raticate, 30, 30, night, 10.00,
+                EncounterMethod.WALKING, soulSilver, route27));
+        newEncounters.add(new Encounter(ponyta, 32, 32, night, 5.00,
+                EncounterMethod.WALKING, soulSilver, route27));
+
+
+        newEncounters.add(new Encounter(tentacool, 25, 30, allTimes, 90.00,
+                EncounterMethod.SURFING, allVersions, route27));
+        newEncounters.add(new Encounter(tentacruel, 30, 30, allTimes, 10.00,
+                EncounterMethod.SURFING, allVersions, route27));
+
+        newEncounters.add(new Encounter(tentacool, 10, 10, allTimes, 95.00,
+                EncounterMethod.OLD_ROD, allVersions, route27));
+        newEncounters.add(new Encounter(tentacruel, 10, 10, allTimes, 5.00,
+                EncounterMethod.OLD_ROD, allVersions, route27));
+
+
+        newEncounters.add(new Encounter(magikarp, 20, 20, allTimes, 60.00,
+                EncounterMethod.GOOD_ROD, allVersions, route27));
+        newEncounters.add(new Encounter(tentacool, 20, 20, allTimes, 30.00,
+                EncounterMethod.GOOD_ROD, allVersions, route27));
+        newEncounters.add(new Encounter(chinchou, 20, 20, allTimes, 7.00,
+                EncounterMethod.GOOD_ROD, allVersions, route27));
+        newEncounters.add(new Encounter(shellder, 20, 20, allTimes, 3.00,
+                EncounterMethod.GOOD_ROD, allVersions, route27));
+
+
+        newEncounters.add(new Encounter(chinchou, 40, 40, allTimes, 60.00,
+                EncounterMethod.SUPER_ROD, allVersions, route27));
+        newEncounters.add(new Encounter(shellder, 40, 40, allTimes, 30.00,
+                EncounterMethod.SUPER_ROD, allVersions, route27));
+        newEncounters.add(new Encounter(tentacruel, 40, 40, allTimes, 7.00,
+                EncounterMethod.SUPER_ROD, allVersions, route27));
+        newEncounters.add(new Encounter(lanturn, 40, 40, allTimes, 3.00,
+                EncounterMethod.SUPER_ROD, allVersions, route27));
+
+
+
+        for (Encounter encounter : newEncounters)
+            if (!encounterManager.containsEncounter(encounter))
+                route27.addEncounter(encounter);
+
+        locationService.saveLocation(route27);
+    }
+
+    @Transactional
+    protected void initializeTohjoFalls() {
+        newEncounters = new ArrayList<>();
+        Location tohjoFalls = locationService.getLocationByName("Tohjo Falls");
+
+        Pokemon raticate = pokemonService.getByName("raticate");
+        Pokemon zubat = pokemonService.getByName("zubat");
+        Pokemon golbat = pokemonService.getByName("golbat");
+        Pokemon slowpoke = pokemonService.getByName("slowpoke");
+        Pokemon rattata = pokemonService.getByName("rattata");
+        Pokemon goldeen = pokemonService.getByName("goldeen");
+        Pokemon seaking = pokemonService.getByName("seaking");
+        Pokemon magikarp = pokemonService.getByName("magikarp");
+
+        newEncounters.add(new Encounter(raticate, 22, 22, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, tohjoFalls));
+        newEncounters.add(new Encounter(zubat, 22, 22, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, tohjoFalls));
+        newEncounters.add(new Encounter(golbat, 22, 22, allTimes, 20.00,
+                EncounterMethod.WALKING, allVersions, tohjoFalls));
+        newEncounters.add(new Encounter(slowpoke, 20, 23, allTimes, 15.00,
+                EncounterMethod.WALKING, allVersions, tohjoFalls));
+        newEncounters.add(new Encounter(rattata, 20, 20, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, tohjoFalls));
+
+        newEncounters.add(new Encounter(goldeen, 20, 20, allTimes, 60.00,
+                EncounterMethod.SURFING, allVersions, tohjoFalls));
+        newEncounters.add(new Encounter(slowpoke, 20, 20, allTimes, 30.00,
+                EncounterMethod.SURFING, allVersions, tohjoFalls));
+        newEncounters.add(new Encounter(seaking, 20, 20, allTimes, 10.00,
+                EncounterMethod.SURFING, allVersions, tohjoFalls));
+
+        newEncounters.add(new Encounter(magikarp, 10, 10, allTimes, 95.00,
+                EncounterMethod.OLD_ROD, allVersions, tohjoFalls));
+        newEncounters.add(new Encounter(goldeen, 10, 10, allTimes, 5.00,
+                EncounterMethod.OLD_ROD, allVersions, tohjoFalls));
+
+        newEncounters.add(new Encounter(magikarp, 20, 20, allTimes, 60.00,
+                EncounterMethod.GOOD_ROD, allVersions, tohjoFalls));
+        newEncounters.add(new Encounter(goldeen, 20, 20, allTimes, 40.00,
+                EncounterMethod.GOOD_ROD, allVersions, tohjoFalls));
+
+        newEncounters.add(new Encounter(goldeen, 40, 40, allTimes, 90.00,
+                EncounterMethod.SUPER_ROD, allVersions, tohjoFalls));
+        newEncounters.add(new Encounter(magikarp, 40, 40, allTimes, 7.00,
+                EncounterMethod.SUPER_ROD, allVersions, tohjoFalls));
+        newEncounters.add(new Encounter(seaking, 40, 40, allTimes, 3.00,
+                EncounterMethod.SUPER_ROD, allVersions, tohjoFalls));
+
+        for (Encounter encounter : newEncounters)
+            if (!encounterManager.containsEncounter(encounter))
+                tohjoFalls.addEncounter(encounter);
+
+        locationService.saveLocation(tohjoFalls);
+    }
+
+    @Transactional
+    protected void initializeVictoryRoad() {
+        newEncounters = new ArrayList<>();
+        Location victoryRoad = locationService.getLocationByName("Victory Road");
+
+        Pokemon golbat = pokemonService.getByName("golbat");
+        Pokemon graveler = pokemonService.getByName("graveler");
+        Pokemon donphan = pokemonService.getByName("donphan");
+        Pokemon onix = pokemonService.getByName("onix");
+        Pokemon rhyhorn = pokemonService.getByName("rhyhorn");
+        Pokemon ursaring = pokemonService.getByName("ursaring");
+        Pokemon geodude =  pokemonService.getByName("geodude");
+
+        newEncounters.add(new Encounter(golbat, 32, 32, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, victoryRoad, "1F"));
+        newEncounters.add(new Encounter(graveler, 32, 32, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, victoryRoad, "1F"));
+        newEncounters.add(new Encounter(onix, 34, 36, allTimes, 15.00,
+                EncounterMethod.WALKING, allVersions, victoryRoad, "1F"));
+        newEncounters.add(new Encounter(rhyhorn, 35, 35, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, victoryRoad, "1F"));
+
+        newEncounters.add(new Encounter(donphan, 33, 33, allTimes, 20.00,
+                EncounterMethod.WALKING, heartGold, victoryRoad, "1F"));
+        newEncounters.add(new Encounter(ursaring, 33, 33, allTimes, 20.00,
+                EncounterMethod.WALKING, soulSilver, victoryRoad, "1F"));
+
+
+        newEncounters.add(new Encounter(golbat, 32, 32, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, victoryRoad, "2F"));
+        newEncounters.add(new Encounter(graveler, 32, 32, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, victoryRoad, "2F"));
+        newEncounters.add(new Encounter(onix, 34, 36, allTimes, 15.00,
+                EncounterMethod.WALKING, allVersions, victoryRoad, "2F"));
+        newEncounters.add(new Encounter(rhyhorn, 35, 35, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, victoryRoad, "2F"));
+
+        newEncounters.add(new Encounter(donphan, 33, 33, allTimes, 20.00,
+                EncounterMethod.WALKING, heartGold, victoryRoad, "2F"));
+        newEncounters.add(new Encounter(ursaring, 33, 33, allTimes, 20.00,
+                EncounterMethod.WALKING, soulSilver, victoryRoad, "2F"));
+
+        newEncounters.add(new Encounter(golbat, 32, 32, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, victoryRoad, "3F"));
+        newEncounters.add(new Encounter(graveler, 32, 32, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, victoryRoad, "3F"));
+        newEncounters.add(new Encounter(onix, 34, 36, allTimes, 15.00,
+                EncounterMethod.WALKING, allVersions, victoryRoad, "3F"));
+        newEncounters.add(new Encounter(rhyhorn, 35, 35, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, victoryRoad, "3F"));
+
+        newEncounters.add(new Encounter(donphan, 33, 33, allTimes, 20.00,
+                EncounterMethod.WALKING, heartGold, victoryRoad, "3F"));
+        newEncounters.add(new Encounter(ursaring, 33, 33, allTimes, 20.00,
+                EncounterMethod.WALKING, soulSilver, victoryRoad, "3F"));
+
+        newEncounters.add(new Encounter(geodude, 24, 32, allTimes, 90.00,
+                EncounterMethod.ROCK_SMASH, allVersions, victoryRoad, "3F"));
+        newEncounters.add(new Encounter(graveler, 30, 33, allTimes, 10.00,
+                EncounterMethod.ROCK_SMASH, allVersions, victoryRoad, "3F"));
+
+        for (Encounter encounter : newEncounters)
+            if (!encounterManager.containsEncounter(encounter))
+                victoryRoad.addEncounter(encounter);
+
+        locationService.saveLocation(victoryRoad);
+    }
+
+    @Transactional
+    protected void initializeRoute22() {
+        newEncounters = new ArrayList<>();
+        Location route22 = locationService.getLocationByName("Route 22");
+
+        Pokemon spearow = pokemonService.getByName("spearow");
+        Pokemon rattata = pokemonService.getByName("rattata");
+        Pokemon doduo = pokemonService.getByName("doduo");
+        Pokemon fearow = pokemonService.getByName("fearow");
+        Pokemon ponyta = pokemonService.getByName("ponyta");
+        Pokemon poliwag = pokemonService.getByName("poliwag");
+        Pokemon poliwhirl = pokemonService.getByName("poliwhirl");
+        Pokemon magikarp = pokemonService.getByName("magikarp");
+
+        newEncounters.add(new Encounter(spearow, 3, 5, morningDay, 50.00,
+                EncounterMethod.WALKING, allVersions, route22));
+        newEncounters.add(new Encounter(rattata, 3, 3, morningDay, 30.00,
+                EncounterMethod.WALKING, allVersions, route22));
+        newEncounters.add(new Encounter(doduo, 4, 4, morningDay, 10.00,
+                EncounterMethod.WALKING, allVersions, route22));
+        newEncounters.add(new Encounter(fearow, 7, 7, morningDay, 5.00,
+                EncounterMethod.WALKING, allVersions, route22));
+        newEncounters.add(new Encounter(ponyta, 6, 6, morningDay, 5.00,
+                EncounterMethod.WALKING, allVersions, route22));
+
+        newEncounters.add(new Encounter(rattata, 3, 7, night, 95.00,
+                EncounterMethod.WALKING, allVersions, route22));
+        newEncounters.add(new Encounter(ponyta, 6, 6, night, 5.00,
+                EncounterMethod.WALKING, allVersions, route22));
+
+        newEncounters.add(new Encounter(poliwag, 5, 10, allTimes, 90.00,
+                EncounterMethod.SURFING, allVersions, route22));
+        newEncounters.add(new Encounter(poliwhirl, 10, 10, allTimes, 10.00,
+                EncounterMethod.SURFING, allVersions, route22));
+
+        newEncounters.add(new Encounter(magikarp, 10, 10, allTimes, 95.00,
+                EncounterMethod.OLD_ROD, allVersions, route22));
+        newEncounters.add(new Encounter(poliwhirl, 10, 10, allTimes, 5.00,
+                EncounterMethod.OLD_ROD, allVersions, route22));
+
+        newEncounters.add(new Encounter(magikarp, 20, 20, allTimes, 60.00,
+                EncounterMethod.GOOD_ROD, allVersions, route22));
+        newEncounters.add(new Encounter(poliwhirl, 20, 20, allTimes, 40.00,
+                EncounterMethod.GOOD_ROD, allVersions, route22));
+
+        newEncounters.add(new Encounter(poliwag, 40, 40, allTimes, 93.00,
+                EncounterMethod.SUPER_ROD, allVersions, route22));
+        newEncounters.add(new Encounter(magikarp, 40, 40, allTimes, 7.00,
+                EncounterMethod.SUPER_ROD, allVersions, route22));
+
+        for (Encounter encounter : newEncounters)
+            if (!encounterManager.containsEncounter(encounter))
+                route22.addEncounter(encounter);
+
+        locationService.saveLocation(route22);
+    }
+
+    @Transactional
+    protected void initializeRoute28() {
+        newEncounters = new ArrayList<>();
+        Location route28 = locationService.getLocationByName("Route 28");
+
+        Pokemon tangela = pokemonService.getByName("tangela");
+        Pokemon donphan = pokemonService.getByName("donphan");
+        Pokemon rapidash = pokemonService.getByName("rapidash");
+        Pokemon doduo = pokemonService.getByName("doduo");
+        Pokemon dodrio = pokemonService.getByName("dodrio");
+        Pokemon ponyta = pokemonService.getByName("ponyta");
+        Pokemon poliwag = pokemonService.getByName("poliwag");
+        Pokemon poliwhirl = pokemonService.getByName("poliwhirl");
+        Pokemon magikarp = pokemonService.getByName("magikarp");
+        Pokemon ursaring = pokemonService.getByName("ursaring");
+        Pokemon sneasel = pokemonService.getByName("sneasel");
+
+        newEncounters.add(new Encounter(ponyta, 40, 40, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, route28));
+        newEncounters.add(new Encounter(tangela, 39, 39, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, route28));
+        newEncounters.add(new Encounter(rapidash, 42, 42, allTimes, 10.00,
+                EncounterMethod.WALKING, allVersions, route28));
+        newEncounters.add(new Encounter(doduo, 41, 41, morningDay, 5.00,
+                EncounterMethod.WALKING, allVersions, route28));
+        newEncounters.add(new Encounter(dodrio, 43, 43, morningDay, 5.00,
+                EncounterMethod.WALKING, allVersions, route28));
+
+        newEncounters.add(new Encounter(donphan, 40, 40, allTimes, 20.00,
+                EncounterMethod.WALKING, heartGold, route28));
+        newEncounters.add(new Encounter(ursaring, 40, 40, allTimes, 20.00,
+                EncounterMethod.WALKING, soulSilver, route28));
+
+        newEncounters.add(new Encounter(sneasel, 42, 42, night, 10.00,
+                EncounterMethod.WALKING, allVersions, route28));
+
+
+        newEncounters.add(new Encounter(poliwag, 35, 40, allTimes, 90.00,
+                EncounterMethod.SURFING, allVersions, route28));
+        newEncounters.add(new Encounter(poliwhirl, 40, 40, allTimes, 10.00,
+                EncounterMethod.SURFING, allVersions, route28));
+
+        newEncounters.add(new Encounter(magikarp, 10, 10, allTimes, 95.00,
+                EncounterMethod.OLD_ROD, allVersions, route28));
+        newEncounters.add(new Encounter(poliwhirl, 10, 10, allTimes, 5.00,
+                EncounterMethod.OLD_ROD, allVersions, route28));
+
+        newEncounters.add(new Encounter(magikarp, 20, 20, allTimes, 60.00,
+                EncounterMethod.GOOD_ROD, allVersions, route28));
+        newEncounters.add(new Encounter(poliwhirl, 20, 20, allTimes, 40.00,
+                EncounterMethod.GOOD_ROD, allVersions, route28));
+
+        newEncounters.add(new Encounter(poliwag, 40, 40, allTimes, 93.00,
+                EncounterMethod.SUPER_ROD, allVersions, route28));
+        newEncounters.add(new Encounter(magikarp, 40, 40, allTimes, 7.00,
+                EncounterMethod.SUPER_ROD, allVersions, route28));
+
+
+        for (Encounter encounter : newEncounters)
+            if (!encounterManager.containsEncounter(encounter))
+                route28.addEncounter(encounter);
+
+        locationService.saveLocation(route28);
+    }
+
+    @Transactional
+    protected void initializeMtSilver() {
+        newEncounters = new ArrayList<>();
+        Location mtSilver = locationService.getLocationByName("Mt Silver");
+
+        Pokemon tangela = pokemonService.getByName("tangela");
+        Pokemon donphan = pokemonService.getByName("donphan");
+        Pokemon rapidash = pokemonService.getByName("rapidash");
+        Pokemon doduo = pokemonService.getByName("doduo");
+        Pokemon dodrio = pokemonService.getByName("dodrio");
+        Pokemon ponyta = pokemonService.getByName("ponyta");
+        Pokemon poliwag = pokemonService.getByName("poliwag");
+        Pokemon poliwhirl = pokemonService.getByName("poliwhirl");
+        Pokemon magikarp = pokemonService.getByName("magikarp");
+        Pokemon ursaring = pokemonService.getByName("ursaring");
+        Pokemon sneasel = pokemonService.getByName("sneasel");
+        Pokemon quagsire = pokemonService.getByName("quagsire");
+        Pokemon steelix = pokemonService.getByName("steelix");
+        Pokemon golduck = pokemonService.getByName("golduck");
+        Pokemon golbat = pokemonService.getByName("golbat");
+        Pokemon larvitar = pokemonService.getByName("larvitar");
+        Pokemon misdreavus = pokemonService.getByName("misdreavus");
+        Pokemon goldeen = pokemonService.getByName("goldeen");
+        Pokemon seaking = pokemonService.getByName("seaking");
+        Pokemon phanpy = pokemonService.getByName("phanpy");
+        Pokemon teddiursa = pokemonService.getByName("teddiursa");
+        Pokemon moltres = pokemonService.getByName("moltres");
+        Pokemon onix = pokemonService.getByName("onix");
+        Pokemon graveler = pokemonService.getByName("graveler");
+        Pokemon gyarados =  pokemonService.getByName("gyarados");
+        Pokemon pupitar = pokemonService.getByName("pupitar");
+
+        newEncounters.add(new Encounter(ponyta, 42, 42, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "outside"));
+        newEncounters.add(new Encounter(tangela, 41, 42, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "outside"));
+        newEncounters.add(new Encounter(rapidash, 44, 44, allTimes, 10.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "outside"));
+        newEncounters.add(new Encounter(doduo, 41, 41, morningDay, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "outside"));
+        newEncounters.add(new Encounter(dodrio, 43, 43, morningDay, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "outside"));
+
+        newEncounters.add(new Encounter(donphan, 42, 42, allTimes, 20.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "outside"));
+        newEncounters.add(new Encounter(ursaring, 42, 42, allTimes, 20.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "outside"));
+
+        newEncounters.add(new Encounter(sneasel, 41, 43, night, 10.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "outside"));
+
+
+        newEncounters.add(new Encounter(poliwag, 35, 40, allTimes, 90.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "outside"));
+        newEncounters.add(new Encounter(poliwhirl, 40, 40, allTimes, 10.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "outside"));
+
+        newEncounters.add(new Encounter(magikarp, 10, 10, allTimes, 95.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "outside"));
+        newEncounters.add(new Encounter(poliwhirl, 10, 10, allTimes, 5.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "outside"));
+
+        newEncounters.add(new Encounter(magikarp, 20, 20, allTimes, 60.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "outside"));
+        newEncounters.add(new Encounter(poliwhirl, 20, 20, allTimes, 40.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "outside"));
+
+        newEncounters.add(new Encounter(poliwag, 40, 40, allTimes, 93.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "outside"));
+        newEncounters.add(new Encounter(magikarp, 40, 40, allTimes, 7.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "outside"));
+
+
+        newEncounters.add(new Encounter(quagsire, 45, 45, morningDay, 40.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(steelix, 48, 48, morningDay, 40.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(golduck, 48, 48, morningDay, 40.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(golbat, 48, 48, morningDay, 40.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(larvitar, 15, 20, morningDay, 40.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F"));
+
+        newEncounters.add(new Encounter(donphan, 47, 48, allTimes, 20.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "1F"));
+        newEncounters.add(new Encounter(ursaring, 47, 48, allTimes, 20.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "1F"));
+
+
+        newEncounters.add(new Encounter(quagsire, 45, 45, night, 30.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(steelix, 48, 48, night, 20.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(golduck, 48, 48, night, 10.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(misdreavus, 45, 45, night, 10.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(golbat, 48, 48, night, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(larvitar, 15, 20, night, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F"));
+
+        newEncounters.add(new Encounter(donphan, 47, 48, night, 20.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "1F"));
+        newEncounters.add(new Encounter(ursaring, 47, 48, night, 20.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "1F"));
+
+
+
+        newEncounters.add(new Encounter(quagsire, 45, 45, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F Top"));
+        newEncounters.add(new Encounter(sneasel, 48, 48, allTimes, 20.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F Top"));
+        newEncounters.add(new Encounter(golduck, 48, 48, morningDay, 15.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F Top"));
+        newEncounters.add(new Encounter(golbat, 48, 48, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F Top"));
+        newEncounters.add(new Encounter(larvitar, 15, 20, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F Top"));
+
+        newEncounters.add(new Encounter(phanpy, 46, 46, allTimes, 10.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "1F Top"));
+        newEncounters.add(new Encounter(teddiursa, 46, 46, allTimes, 10.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "1F Top"));
+        newEncounters.add(new Encounter(donphan, 48, 50, allTimes, 10.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "1F Top"));
+        newEncounters.add(new Encounter(ursaring, 48, 50, allTimes, 10.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "1F Top"));
+
+        newEncounters.add(new Encounter(misdreavus, 45, 45, night, 10.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "1F Top"));
+
+        newEncounters.add(new Encounter(moltres, 50, 50, allTimes, 100.00,
+                EncounterMethod.ENCOUNTER, soulSilver, mtSilver, "1F Top"));
+
+
+
+        newEncounters.add(new Encounter(onix, 42, 42, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "2F"));
+        newEncounters.add(new Encounter(graveler, 44, 44, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "2F"));
+        newEncounters.add(new Encounter(golbat, 45, 45, morningDay, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "2F"));
+        newEncounters.add(new Encounter(larvitar, 15, 20, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "2F"));
+
+        newEncounters.add(new Encounter(phanpy, 43, 43, allTimes, 10.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "2F"));
+        newEncounters.add(new Encounter(teddiursa, 43, 43, allTimes, 10.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "2F"));
+        newEncounters.add(new Encounter(donphan, 44, 44, allTimes, 30.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "2F"));
+        newEncounters.add(new Encounter(ursaring, 44, 44, allTimes, 30.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "2F"));
+
+
+
+
+        newEncounters.add(new Encounter(golduck, 48, 48, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "3F"));
+        newEncounters.add(new Encounter(sneasel, 50, 50, allTimes, 20.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "3F"));
+        newEncounters.add(new Encounter(quagsire, 45, 45, morningDay, 15.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "3F"));
+        newEncounters.add(new Encounter(larvitar, 15, 20, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "3F"));
+        newEncounters.add(new Encounter(golbat, 48, 48, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "3F"));
+
+        newEncounters.add(new Encounter(donphan, 47, 47, allTimes, 20.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "3F"));
+        newEncounters.add(new Encounter(ursaring, 47, 47, allTimes, 20.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "3F"));
+
+        newEncounters.add(new Encounter(misdreavus, 45, 45, night, 10.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "3F"));
+
+
+
+        newEncounters.add(new Encounter(golduck, 48, 48, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "4F"));
+        newEncounters.add(new Encounter(sneasel, 50, 50, allTimes, 20.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "4F"));
+        newEncounters.add(new Encounter(quagsire, 45, 45, morningDay, 15.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "4F"));
+        newEncounters.add(new Encounter(larvitar, 15, 20, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "4F"));
+        newEncounters.add(new Encounter(golbat, 48, 48, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "4F"));
+
+        newEncounters.add(new Encounter(donphan, 47, 47, allTimes, 20.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "4F"));
+        newEncounters.add(new Encounter(ursaring, 47, 47, allTimes, 20.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "4F"));
+
+        newEncounters.add(new Encounter(quagsire, 45, 45, night, 10.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "4F"));
+        newEncounters.add(new Encounter(misdreavus, 45, 45, night, 10.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "4F"));
+
+
+        newEncounters.add(new Encounter(golbat, 48, 51, allTimes, 40.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Mountain Side"));
+        newEncounters.add(new Encounter(onix, 48, 48, allTimes, 30.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Mountain Side"));
+        newEncounters.add(new Encounter(golduck, 51, 51, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Mountain Side"));
+        newEncounters.add(new Encounter(larvitar, 15, 20, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Mountain Side"));
+
+
+        newEncounters.add(new Encounter(phanpy, 48, 48, allTimes, 10.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "Mountain Side"));
+        newEncounters.add(new Encounter(teddiursa, 48, 48, allTimes, 10.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "Mountain Side"));
+
+        newEncounters.add(new Encounter(donphan, 50, 50, allTimes, 10.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "Mountain Side"));
+        newEncounters.add(new Encounter(ursaring, 50, 50, allTimes, 10.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "Mountain Side"));
+
+
+
+
+        newEncounters.add(new Encounter(golduck, 48, 48, morningDay, 30.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(sneasel, 45, 45, morningDay, 20.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(quagsire, 45, 45, morningDay, 15.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(larvitar, 15, 30, morningDay, 10.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(golbat, 48, 48, morningDay, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Top"));
+
+        newEncounters.add(new Encounter(donphan, 47, 47, allTimes, 20.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "Top"));
+        newEncounters.add(new Encounter(ursaring, 47, 47, allTimes, 20.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "Top"));
+
+
+        newEncounters.add(new Encounter(golduck, 45, 45, night, 30.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(sneasel, 48, 48, night, 20.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(misdreavus, 48, 48, night, 15.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(quagsire, 45, 45, night, 10.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(larvitar, 48, 48, night, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(golbat, 15, 20, night, 5.00,
+                EncounterMethod.WALKING, allVersions, mtSilver, "Top"));
+
+        newEncounters.add(new Encounter(donphan, 47, 47, night, 20.00,
+                EncounterMethod.WALKING, heartGold, mtSilver, "Top"));
+        newEncounters.add(new Encounter(ursaring, 47, 47, night, 20.00,
+                EncounterMethod.WALKING, soulSilver, mtSilver, "Top"));
+
+
+
+
+
+        newEncounters.add(new Encounter(seaking, 30, 45, allTimes, 90.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(goldeen, 30, 40, allTimes, 10.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "1F"));
+
+        newEncounters.add(new Encounter(magikarp, 10, 10, allTimes, 95.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(goldeen, 10, 10, allTimes, 5.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "1F"));
+
+        newEncounters.add(new Encounter(magikarp, 20, 20, allTimes, 60.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(goldeen, 20, 20, allTimes, 40.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "1F"));
+
+        newEncounters.add(new Encounter(goldeen, 40, 40, allTimes, 90.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(magikarp, 40, 40, allTimes, 7.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "1F"));
+        newEncounters.add(new Encounter(seaking, 40, 40, allTimes, 3.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "1F"));
+
+
+        newEncounters.add(new Encounter(seaking, 30, 45, allTimes, 90.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "1F Top"));
+        newEncounters.add(new Encounter(goldeen, 30, 40, allTimes, 10.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "1F Top"));
+
+        newEncounters.add(new Encounter(magikarp, 10, 10, allTimes, 95.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "1F Top"));
+        newEncounters.add(new Encounter(goldeen, 10, 10, allTimes, 5.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "1F Top"));
+
+        newEncounters.add(new Encounter(magikarp, 20, 20, allTimes, 60.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "1F Top"));
+        newEncounters.add(new Encounter(goldeen, 20, 20, allTimes, 40.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "1F Top"));
+
+        newEncounters.add(new Encounter(goldeen, 40, 40, allTimes, 90.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "1F Top"));
+        newEncounters.add(new Encounter(magikarp, 40, 40, allTimes, 7.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "1F Top"));
+        newEncounters.add(new Encounter(seaking, 40, 40, allTimes, 3.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "1F Top"));
+
+        newEncounters.add(new Encounter(seaking, 30, 45, allTimes, 90.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "2F"));
+        newEncounters.add(new Encounter(goldeen, 30, 40, allTimes, 10.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "2F"));
+
+        newEncounters.add(new Encounter(magikarp, 10, 10, allTimes, 95.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "2F"));
+        newEncounters.add(new Encounter(goldeen, 10, 10, allTimes, 5.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "2F"));
+
+        newEncounters.add(new Encounter(magikarp, 20, 20, allTimes, 60.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "2F"));
+        newEncounters.add(new Encounter(goldeen, 20, 20, allTimes, 40.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "2F"));
+
+        newEncounters.add(new Encounter(goldeen, 40, 40, allTimes, 90.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "2F"));
+        newEncounters.add(new Encounter(magikarp, 40, 40, allTimes, 7.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "2F"));
+        newEncounters.add(new Encounter(seaking, 40, 40, allTimes, 3.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "2F"));
+
+        newEncounters.add(new Encounter(seaking, 30, 45, allTimes, 90.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "3F"));
+        newEncounters.add(new Encounter(goldeen, 30, 40, allTimes, 10.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "3F"));
+
+        newEncounters.add(new Encounter(magikarp, 10, 10, allTimes, 95.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "3F"));
+        newEncounters.add(new Encounter(goldeen, 10, 10, allTimes, 5.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "3F"));
+
+        newEncounters.add(new Encounter(magikarp, 20, 20, allTimes, 60.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "3F"));
+        newEncounters.add(new Encounter(goldeen, 20, 20, allTimes, 40.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "3F"));
+
+        newEncounters.add(new Encounter(goldeen, 40, 40, allTimes, 90.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "3F"));
+        newEncounters.add(new Encounter(magikarp, 40, 40, allTimes, 7.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "3F"));
+        newEncounters.add(new Encounter(seaking, 40, 40, allTimes, 3.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "3F"));
+
+
+        newEncounters.add(new Encounter(seaking, 30, 45, allTimes, 90.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "4F"));
+        newEncounters.add(new Encounter(goldeen, 30, 40, allTimes, 10.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "4F"));
+
+        newEncounters.add(new Encounter(magikarp, 10, 10, allTimes, 95.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "4F"));
+        newEncounters.add(new Encounter(goldeen, 10, 10, allTimes, 5.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "4F"));
+
+        newEncounters.add(new Encounter(magikarp, 20, 20, allTimes, 60.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "4F"));
+        newEncounters.add(new Encounter(goldeen, 20, 20, allTimes, 40.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "4F"));
+
+        newEncounters.add(new Encounter(goldeen, 40, 40, allTimes, 90.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "4F"));
+        newEncounters.add(new Encounter(magikarp, 40, 40, allTimes, 7.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "4F"));
+        newEncounters.add(new Encounter(seaking, 40, 40, allTimes, 3.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "4F"));
+
+
+        newEncounters.add(new Encounter(seaking, 30, 45, allTimes, 90.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(goldeen, 30, 40, allTimes, 10.00,
+                EncounterMethod.SURFING, allVersions, mtSilver, "Top"));
+
+        newEncounters.add(new Encounter(magikarp, 10, 10, allTimes, 95.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(goldeen, 10, 10, allTimes, 5.00,
+                EncounterMethod.OLD_ROD, allVersions, mtSilver, "Top"));
+
+        newEncounters.add(new Encounter(magikarp, 20, 20, allTimes, 60.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(goldeen, 20, 20, allTimes, 40.00,
+                EncounterMethod.GOOD_ROD, allVersions, mtSilver, "Top"));
+
+        newEncounters.add(new Encounter(goldeen, 40, 40, allTimes, 90.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(magikarp, 40, 40, allTimes, 7.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "Top"));
+        newEncounters.add(new Encounter(seaking, 40, 40, allTimes, 3.00,
+                EncounterMethod.SUPER_ROD, allVersions, mtSilver, "Top"));
+
+
+
+        for (Encounter encounter : newEncounters)
+            if (!encounterManager.containsEncounter(encounter))
+                mtSilver.addEncounter(encounter);
+
+        locationService.saveLocation(mtSilver);
+    }
 
 }

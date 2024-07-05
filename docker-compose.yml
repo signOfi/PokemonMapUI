@@ -1,27 +1,61 @@
 services:
   postgres:
     container_name: postgres-sql-pokemon
-    image: postgres
+    image: postgres:13
     environment:
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: ${DB_USER:-pokemonuser}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-strongpassword}
       PGDATA: /var/lib/postgresql/data
-      POSTGRES_DB: pokemon_api_db
+      POSTGRES_DB: ${DB_NAME:-pokemon_api_db}
     volumes:
-      - postgres:/data/postgres
+      - postgres_data:/var/lib/postgresql/data
     ports:
-      - 5432:5432
+      - "5432:5432"
     networks:
-      - spring-demo
+      - app-network
     restart: unless-stopped
 
+  backend:
+    build:
+      context: ./Pokemon-Backend
+      dockerfile: Dockerfile
+    container_name: pokemon-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${DB_NAME:-pokemon_api_db}
+      SPRING_DATASOURCE_USERNAME: ${DB_USER:-pokemonuser}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD:-strongpassword}
+      ACTIVE_PROFILE: ${PROFILE:-dev}
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./Pokemon-Frontend
+      dockerfile: Dockerfile
+    container_name: pokemon-frontend
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
 
 networks:
-  spring-demo:
+  app-network:
     driver: bridge
 
-
 volumes:
-  postgres:
+  postgres_data:
     driver: local
-

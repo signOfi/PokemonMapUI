@@ -100,10 +100,10 @@ public class EncounterSetupService {
         initializeRoute27();
         initializeTohjoFalls();
         initializeVictoryRoad();
-
         initializeRoute22();
         initializeRoute28();
         initializeMtSilver();
+        initializeNationalPark();
     }
 
     @Transactional
@@ -130,6 +130,12 @@ public class EncounterSetupService {
                 85.00, EncounterMethod.WALKING, allVersions, route29));
         newEncounters.add(new Encounter(rattata, 2, 4, night,
                 15.00, EncounterMethod.WALKING, allVersions, route29));
+
+        for (Encounter encounter : newEncounters)
+            if (!encounterManager.containsEncounter(encounter))
+                route29.addEncounter(encounter);
+
+        locationService.saveLocation(route29);
     }
 
     @Transactional
@@ -3815,6 +3821,82 @@ public class EncounterSetupService {
                 mtSilver.addEncounter(encounter);
 
         locationService.saveLocation(mtSilver);
+    }
+
+    @Transactional
+    protected void initializeNationalPark() {
+        newEncounters = new ArrayList<>();
+        Location nationalPark = locationService.getLocationByName("National Park");
+
+        Pokemon caterpie = pokemonService.getByName("caterpie");
+        Pokemon metapod = pokemonService.getByName("metapod");
+        Pokemon pidgey = pokemonService.getByName("pidgey");
+        Pokemon weedle = pokemonService.getByName("weedle");
+        Pokemon kakuna = pokemonService.getByName("kakuna");
+        Pokemon sunkern = pokemonService.getByName("sunkern");
+        Pokemon paras = pokemonService.getByName("paras");
+        Pokemon venonat = pokemonService.getByName("venonat");
+        Pokemon butterfree = pokemonService.getByName("butterfree");
+        Pokemon beedrill = pokemonService.getByName("beedrill");
+        Pokemon scyther = pokemonService.getByName("scyther");
+        Pokemon pinsir = pokemonService.getByName("pinsir");
+        Pokemon hoothoot = pokemonService.getByName("hoothoot");
+
+        newEncounters.add(new Encounter(caterpie, 10, 12, morning, 50.00,
+                EncounterMethod.WALKING, heartGold, nationalPark, "non-contest"));
+        newEncounters.add(new Encounter(metapod, 10, 10, morning, 30.00,
+                EncounterMethod.WALKING, heartGold, nationalPark, "non-contest"));
+        newEncounters.add(new Encounter(caterpie, 10, 12, morning, 50.00,
+                EncounterMethod.WALKING, soulSilver, nationalPark, "non-contest"));
+        newEncounters.add(new Encounter(metapod, 10, 10, morning, 30.00,
+                EncounterMethod.WALKING, soulSilver, nationalPark, "non-contest"));
+        newEncounters.add(new Encounter(pidgey, 10, 14, morning, 20.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "non-contest"));
+
+        newEncounters.add(new Encounter(caterpie, 10, 12, day, 30.00,
+                EncounterMethod.WALKING, heartGold, nationalPark, "non-contest"));
+        newEncounters.add(new Encounter(metapod, 10, 10, day, 30.00,
+                EncounterMethod.WALKING, heartGold, nationalPark, "non-contest"));
+        newEncounters.add(new Encounter(caterpie, 10, 12, day, 30.00,
+                EncounterMethod.WALKING, soulSilver, nationalPark, "non-contest"));
+        newEncounters.add(new Encounter(metapod, 10, 10, day, 30.00,
+                EncounterMethod.WALKING, soulSilver, nationalPark, "non-contest"));
+        newEncounters.add(new Encounter(pidgey, 12, 14, day, 15.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "non-contest"));
+        newEncounters.add(new Encounter(sunkern, 12, 12, day, 25.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "non-contest"));
+
+        newEncounters.add(new Encounter(hoothoot, 10, 14, day, 100.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "non-contest"));
+
+
+        newEncounters.add(new Encounter(caterpie, 10, 14, allTimes, 20.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "contest"));
+        newEncounters.add(new Encounter(weedle, 10, 14, allTimes, 20.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "contest"));
+        newEncounters.add(new Encounter(metapod, 10, 14, allTimes, 10.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "contest"));
+        newEncounters.add(new Encounter(kakuna, 10, 14, allTimes, 10.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "contest"));
+        newEncounters.add(new Encounter(paras, 10, 14, allTimes, 10.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "contest"));
+        newEncounters.add(new Encounter(venonat, 10, 14, allTimes, 10.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "contest"));
+        newEncounters.add(new Encounter(butterfree, 10, 14, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "contest"));
+        newEncounters.add(new Encounter(beedrill, 10, 14, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "contest"));
+        newEncounters.add(new Encounter(scyther, 10, 14, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "contest"));
+        newEncounters.add(new Encounter(pinsir, 10, 14, allTimes, 5.00,
+                EncounterMethod.WALKING, allVersions, nationalPark, "contest"));
+
+
+        for (Encounter encounter : newEncounters)
+            if (!encounterManager.containsEncounter(encounter))
+                nationalPark.addEncounter(encounter);
+
+        locationService.saveLocation(nationalPark);
     }
 
 }

@@ -10,8 +10,7 @@ import { TimeOfEncounter } from '../models/time-of-encounter.enum';
 })
 export class LocationService {
 
-  private apiUrl = 'http://54.215.203.52:8080/pokemon';
-
+  private apiUrl = 'https://54.215.203.52:8080/pokemon';
 
   constructor(private http: HttpClient) { }
 

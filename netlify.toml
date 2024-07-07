@@ -1,7 +1,7 @@
 [build]
 base = "Pokemon-Frontend"
 command = "npm run prerender"
-publish = "Pokemon-Frontend/dist/pokemon-frontend/browser"
+publish = "/dist/pokemon-frontend/browser"
 
 [dev]
 command = "npm run start"

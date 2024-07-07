@@ -12,6 +12,7 @@ export class LocationService {
 
   private apiUrl = 'http://54.215.203.52:8080/pokemon';
 
+
   constructor(private http: HttpClient) { }
 
   getLocationById(locationId: number): Observable<LocationDTO> {

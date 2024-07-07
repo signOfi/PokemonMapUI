@@ -10,6 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins(
+                        "https://pokemon-map.netlify.app",
                         "https://regal-lily-a631f6.netlify.app/",
                         "http://localhost:",
                         "http://localhost:4200",

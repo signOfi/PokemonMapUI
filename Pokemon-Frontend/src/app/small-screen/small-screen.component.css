@@ -9,28 +9,33 @@
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(45deg, #0a192f, #172a45);
+    overflow: hidden;
   }
 
   .small-screen-content {
     text-align: center;
-    padding: 20px;
+    padding: 40px;
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
+    border-radius: 20px;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     color: #ffffff;
+    max-width: 90%;
+    width: 400px;
   }
 
   h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: #64ffda;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   p {
     font-size: 1.2rem;
     line-height: 1.6;
-    margin-bottom: 30px;
+    margin-bottom: 0;
+    color: #e6f1ff;
   }
 
   .pokeball {
@@ -41,6 +46,7 @@
     position: relative;
     margin: 0 auto 30px;
     animation: shake 1.5s ease-in-out infinite;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
 
   .pokeball::before {
@@ -54,23 +60,6 @@
     background-color: #ffffff;
     border-radius: 50%;
     border: 8px solid #000000;
-  }
-
-  .cta-button {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #64ffda;
-    color: #0a192f;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
-
-  .cta-button:hover {
-    background-color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 8px rgba(100, 255, 218, 0.3);
   }
 
   @keyframes shake {

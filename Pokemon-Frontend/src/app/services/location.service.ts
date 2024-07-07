@@ -10,7 +10,10 @@ import { TimeOfEncounter } from '../models/time-of-encounter.enum';
 })
 export class LocationService {
 
+  /* For Production use */
   private apiUrl = '/api/pokemon';
+
+  /* For Development use  "http://ec2-54-215-203-52.us-west-1.compute.amazonaws.com:8080/:splat" */
 
   constructor(private http: HttpClient) { }
 

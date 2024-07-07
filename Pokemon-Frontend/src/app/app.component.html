@@ -1,17 +1,19 @@
 <app-small-screen></app-small-screen>
-<div class="container">
-  <div class="left-column">
-    <div class="map-container">
-      <app-map (locationSelected)="onLocationSelected($event)"></app-map>
+<div class="main-content">
+  <div class="container">
+    <div class="left-column">
+      <div class="map-container">
+        <app-map (locationSelected)="onLocationSelected($event)"></app-map>
+      </div>
+      <div class="location-image-container">
+        <app-location-image *ngIf="selectedLocation" [location]="selectedLocation"></app-location-image>
+      </div>
     </div>
-    <div class="location-image-container">
-      <app-location-image *ngIf="selectedLocation" [location]="selectedLocation"></app-location-image>
+    <div class="right-column">
+      <div class="information-container">
+        <app-information *ngIf="selectedLocation" [location]="selectedLocation"></app-information>
+      </div>
     </div>
   </div>
-  <div class="right-column">
-    <div class="information-container">
-      <app-information *ngIf="selectedLocation" [location]="selectedLocation"></app-information>
-    </div>
-  </div>
+  <img src="assets/hgsslogo.png" alt="Pokémon HeartGold and SoulSilver" class="logo-overlay">
 </div>
-<img src="assets/hgsslogo.png" alt="Pokémon HeartGold and SoulSilver" class="logo-overlay">

@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:Pokemon-Frontend": "node dist/pokemon-frontend/server/server.mjs",
-    "prerender": "ng build --prod && ng run Pokemon-Frontend:prerender"
+    "prerender": "ng build && ng run Pokemon-Frontend:prerender"
   },
   "private": true,
   "dependencies": {

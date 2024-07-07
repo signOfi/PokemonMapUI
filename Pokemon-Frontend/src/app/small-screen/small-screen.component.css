@@ -8,45 +8,42 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(45deg, #0a192f, #172a45);
+    background: #0a192f;
     overflow: hidden;
   }
 
   .small-screen-content {
     text-align: center;
-    padding: 40px;
+    padding: 20px;
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     color: #ffffff;
-    max-width: 90%;
-    width: 400px;
+    width: 90%;
+    max-width: 300px;
   }
 
   h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
     color: #64ffda;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   p {
-    font-size: 1.2rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.4;
     margin-bottom: 0;
-    color: #e6f1ff;
   }
 
   .pokeball {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     background: linear-gradient(to bottom, #ff1a1a 0%, #ff1a1a 50%, #ffffff 50%, #ffffff 100%);
     border-radius: 50%;
     position: relative;
-    margin: 0 auto 30px;
+    margin: 0 auto 20px;
     animation: shake 1.5s ease-in-out infinite;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
 
   .pokeball::before {
@@ -55,11 +52,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30px;
-    height: 30px;
+    width: 18px;
+    height: 18px;
     background-color: #ffffff;
     border-radius: 50%;
-    border: 8px solid #000000;
+    border: 5px solid #000000;
   }
 
   @keyframes shake {

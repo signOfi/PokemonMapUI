@@ -96,7 +96,7 @@ button:hover {
 
 .method-buttons .active[data-method="WALKING"] { background-color: #4CAF50; color: white; }
 .method-buttons .active[data-method="SURFING"] { background-color: #09749a; color: white; }
-.method-buttons .active[data-method="OLD_ROD"] { background-color: #7baed2; color: white; }
+.method-buttons .active[data-method="OLD_ROD"] { background-color: #75bbf1; color: white; }
 .method-buttons .active[data-method="GOOD_ROD"] { background-color: #4d9ad0; color: white; }
 .method-buttons .active[data-method="SUPER_ROD"] { background-color: #258dd7; color: white; }
 .method-buttons .active[data-method="ROCK_SMASH"] { background-color: #CD7F32; color: white; }

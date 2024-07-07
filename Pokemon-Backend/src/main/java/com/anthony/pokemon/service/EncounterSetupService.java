@@ -2371,6 +2371,8 @@ public class EncounterSetupService {
         Pokemon hooh = pokemonService.getByName("ho-oh");
 
         newEncounters.add(new Encounter(rattata, 20, 24, morningDay,
+                100.00, EncounterMethod.WALKING, allVersions, bellTower, "1F"));
+        newEncounters.add(new Encounter(rattata, 20, 24, morningDay,
                 100.00, EncounterMethod.WALKING, allVersions, bellTower, "2F"));
         newEncounters.add(new Encounter(rattata, 20, 24, morningDay,
                 100.00, EncounterMethod.WALKING, allVersions, bellTower, "3F"));
@@ -2388,6 +2390,11 @@ public class EncounterSetupService {
                 100.00, EncounterMethod.WALKING, allVersions, bellTower, "9F"));
         newEncounters.add(new Encounter(rattata, 20, 24, morningDay,
                 100.00, EncounterMethod.WALKING, allVersions, bellTower, "10F"));
+
+        newEncounters.add(new Encounter(gastly, 20, 22, night,
+                80.00, EncounterMethod.WALKING, allVersions, bellTower, "1F"));
+        newEncounters.add(new Encounter(rattata, 20, 24, night,
+                20.00, EncounterMethod.WALKING, allVersions, bellTower, "1F"));
 
         newEncounters.add(new Encounter(gastly, 20, 22, night,
                 80.00, EncounterMethod.WALKING, allVersions, bellTower, "2F"));

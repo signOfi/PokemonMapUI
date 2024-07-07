@@ -1,12 +1,7 @@
 [build]
-base = "Pokemon-Frontend"
-command = "npm run prerender"
-publish = "/dist/pokemon-frontend/browser"
-
-[dev]
-command = "npm run start"
-functions = "./functions"
-publish = "Pokemon-Frontend/src"
+base = "."
+command = "cd Pokemon-Frontend && npm install && npm run build"
+publish = "Pokemon-Frontend/dist/pokemon-frontend"
 
 [[redirects]]
 from = "/*"

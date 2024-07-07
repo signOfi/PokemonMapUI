@@ -5,7 +5,15 @@
       <button (click)="toggleVersion()" [class.active]="currentVersion === GameVersion.HG" [attr.data-version]="GameVersion.HG">HeartGold</button>
       <button (click)="toggleVersion()" [class.active]="currentVersion === GameVersion.SS" [attr.data-version]="GameVersion.SS">SoulSilver</button>
     </div>
+    <div *ngIf="hasSubLevels()" class="sublevel-section">
+      <span class="section-label">Sub Levels</span>
+      <select [(ngModel)]="selectedSubLevel" (change)="onSubLevelChange()">
+        <option value="">All Sublevels</option>
+        <option *ngFor="let subLevel of getUniqueSubLevels()" [value]="subLevel">{{subLevel}}</option>
+      </select>
+    </div>
   </div>
+
   <div class="method-section">
     <span class="section-label">Encounter Methods</span>
     <div class="button-grid method-buttons">
@@ -28,7 +36,7 @@
   <table class="encounter-table">
     <thead>
     <tr>
-      <th *ngIf="hasSubLevels()">Sub Level</th>
+      <th *ngIf="hasSublevelsToShow">Sub Level</th>
       <th>Pokemon</th>
       <th>Name</th>
       <th>Encounter Rate</th>
@@ -40,8 +48,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let encounter of locations[0]?.encounters">
-      <td *ngIf="hasSubLevels()">{{ encounter.subLevel }}</td>
+    <tr *ngFor="let encounter of filteredEncounters">
+      <td *ngIf="hasSublevelsToShow">{{ encounter.subLevel || 'N/A' }}</td>
       <td><app-pokemon-image [pokemonName]="encounter.pokemonName"></app-pokemon-image></td>
       <td>{{ encounter.pokemonName | titlecase }}</td>
       <td>{{ encounter.encounterRate }}%</td>

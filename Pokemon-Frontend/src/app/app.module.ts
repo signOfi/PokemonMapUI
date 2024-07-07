@@ -9,6 +9,8 @@ import { MapComponent } from './map/map.component';
 import { InformationComponent } from './information/information.component';
 import { LocationImageComponent } from './location-image/location-image.component';
 import { LocationService } from "./services/location.service";
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { LocationService } from "./services/location.service";
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [LocationService],
   bootstrap: [AppComponent]

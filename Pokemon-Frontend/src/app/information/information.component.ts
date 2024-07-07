@@ -19,21 +19,35 @@ export class InformationComponent implements OnChanges {
   allMethods = Object.values(EncounterMethod);
   currentVersion: GameVersion = GameVersion.HG;
   currentTimeOfEncounter: TimeOfEncounter = TimeOfEncounter.MORNING;
+  hasSublevelsToShow: boolean = false;
+
+  selectedSubLevel: string = '';
+  filteredEncounters: any[] = [];
 
   constructor(private locationService: LocationService) {}
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChanges called, location:', this.location);
     if (changes['location']) {
       this.currentLocation = Array.isArray(this.location) ? this.location[0] : this.location;
       if (this.currentLocation && this.currentLocation.id) {
         this.loadEncounters();
       }
     }
+    if (this.locations.length > 0 && this.hasSubLevels()) {
+      this.selectedSubLevel = this.getUniqueSubLevels()[0];
+      this.filterEncounters();
+    }
+
+    if (this.locations.length > 0) {
+      if (this.hasSubLevels()) {
+        this.selectedSubLevel = this.getUniqueSubLevels()[0];
+      }
+      this.filterEncounters();
+    }
+
   }
 
   loadEncounters(): void {
-    console.log('loadEncounters called, currentLocation:', this.currentLocation);
     if (!this.currentLocation || !this.currentLocation.id) {
       console.error('Location or location ID is undefined');
       return;
@@ -46,8 +60,10 @@ export class InformationComponent implements OnChanges {
       this.currentTimeOfEncounter
     ).subscribe({
       next: (data: LocationDTO[]) => {
-        console.log('Encounters loaded:', data);
         this.locations = data;
+        this.hasSublevelsToShow = this.hasSubLevels() && this.locations[0]?.encounters.some(e => e.subLevel);
+        this.selectedSubLevel = this.hasSublevelsToShow ? this.getUniqueSubLevels()[0] : '';
+        this.filterEncounters();
       },
       error: (error: any) => console.error('Failed to fetch data:', error)
     });
@@ -92,7 +108,6 @@ export class InformationComponent implements OnChanges {
     return method.replace(/_/g, ' ').toLowerCase().replace(/\b\w/g, l => l.toUpperCase());
   }
 
-
   getVersionImage(version: GameVersion | null): string {
     if (version === GameVersion.HG) {
       return 'assets/versions/heartgold.png';
@@ -129,7 +144,38 @@ export class InformationComponent implements OnChanges {
     return this.locations.some(location => location.encounters.some(encounter => encounter.subLevel != null && encounter.subLevel.trim() !== ''));
   }
 
+  getUniqueSubLevels(): string[] {
+    const subLevels = new Set<string>();
+    this.locations.forEach(location => {
+      location.encounters.forEach(encounter => {
+        if (encounter.subLevel) {
+          subLevels.add(encounter.subLevel);
+        }
+      });
+    });
+    return Array.from(subLevels).sort();
+  }
 
+  setSubLevel(subLevel: string): void {
+    this.selectedSubLevel = subLevel;
+    this.filterEncounters();
+  }
+
+  onSubLevelChange(): void {
+    this.filterEncounters();
+  }
+
+
+  filterEncounters(): void {
+    this.hasSublevelsToShow = this.hasSubLevels() && this.locations[0]?.encounters.some(e => e.subLevel);
+    if (this.hasSubLevels() && this.selectedSubLevel) {
+      this.filteredEncounters = this.locations[0]?.encounters.filter(
+        encounter => encounter.subLevel === this.selectedSubLevel
+      );
+    } else {
+      this.filteredEncounters = this.locations[0]?.encounters || [];
+    }
+  }
   protected readonly EncounterMethod = EncounterMethod;
   protected readonly GameVersion = GameVersion;
   protected readonly TimeOfEncounter = TimeOfEncounter;

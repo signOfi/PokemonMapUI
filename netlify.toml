@@ -4,6 +4,7 @@ command = "cd Pokemon-Frontend && npm install && npm run build"
 publish = "Pokemon-Frontend/dist/pokemon-frontend"
 
 [[redirects]]
-from = "/*"
-to = "/index.html"
+from = "/api/*"
+to = "http://ec2-54-215-203-52.us-west-1.compute.amazonaws.com:8080/:splat"
 status = 200
+force = true

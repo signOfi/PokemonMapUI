@@ -81,5 +81,10 @@
   }
 }
 
+@media screen and (max-width: 1056px) {
+  .main-content {
+    display: none;
+  }
+}
 
 

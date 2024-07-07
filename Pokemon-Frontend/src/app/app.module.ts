@@ -10,6 +10,7 @@ import { InformationComponent } from './information/information.component';
 import { LocationImageComponent } from './location-image/location-image.component';
 import { LocationService } from "./services/location.service";
 import {FormsModule} from "@angular/forms";
+import { SmallScreenComponent } from './small-screen/small-screen.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {FormsModule} from "@angular/forms";
     PokemonImageComponent,
     MapComponent,
     InformationComponent,
-    LocationImageComponent
+    LocationImageComponent,
+    SmallScreenComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

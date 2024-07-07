@@ -3,28 +3,27 @@ body {
   font-family: Inter, sans-serif;
 }
 
-@media screen and (max-width: 960px) {
-  body {
-    display: none;
+@media screen and (max-width: 1056px) {
+  body * {
+    display: none !important;
   }
 
-  body::before {
-    content: "Please view on a larger device (>10 inches).";
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #f0f0f0;
-    color: #333;
-    font-family: Arial, sans-serif;
-    font-size: 24px;
-    text-align: center;
+  body {
+    display: flex !important;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    margin: 0;
     padding: 20px;
     box-sizing: border-box;
-    z-index: 9999;
+    background-color: #0a192f;
+    color: #ffffff;
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  body::after {
+    content: "Please view on a larger device (>11 inches).";
   }
 }

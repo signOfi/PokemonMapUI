@@ -22,7 +22,6 @@ public class LocationController {
         this.locationService = locationService;
     }
 
-    /* Set up all static locations in region */
     @GetMapping("/initializeLocations")
     public ResponseEntity<Void> initializeLocations() {
         locationService.initializeLocations();

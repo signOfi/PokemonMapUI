@@ -16,7 +16,6 @@ public class EncounterController {
         this.encounterSetupService = encounterSetupService;
     }
 
-    /* Sets all encounters statically */
     @GetMapping("/setupEncounters")
     public void pokemonSetup() {
         encounterSetupService.setupEncounters();
